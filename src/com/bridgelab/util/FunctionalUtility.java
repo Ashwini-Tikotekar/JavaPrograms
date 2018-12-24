@@ -189,8 +189,14 @@ public void Anagram(String string1, String string2)
 	        }  
 	    }  
 	   
+
 }
-	 
+
+
+
+
+	
+	
 	
 		
 		
