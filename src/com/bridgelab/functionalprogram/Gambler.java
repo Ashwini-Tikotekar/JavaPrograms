@@ -5,7 +5,8 @@ import com.bridgelab.util.FunctionalUtility;
 public class Gambler {
 	public static void main(String[]args){
 		FunctionalUtility f= new FunctionalUtility();
-		f.Gambler();
+		System.out.println();
+		
 	}
 
 }

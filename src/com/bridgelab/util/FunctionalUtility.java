@@ -1,9 +1,13 @@
 package com.bridgelab.util;
 
+import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
+//replace string//
 public class FunctionalUtility {
 
 	public void replacestring(String s) {
@@ -14,6 +18,7 @@ public class FunctionalUtility {
 			System.out.println("please enter more than three characters");
 	}
 
+	//lepayear//
 	public void LeapYear() {
 		int year = 0;
 		Scanner s = new Scanner(System.in);
@@ -31,74 +36,70 @@ public class FunctionalUtility {
 			}
 		}
 	}
-	public void power()
-	{
 
-		Scanner s=new Scanner(System.in);
+	
+	//power
+	public void power() {
+
+		Scanner s = new Scanner(System.in);
 		System.out.println("enter the number");
-		int n=s.nextInt();
-		int count=0;
-		if(n>0 && n<31)
-		{
-			for(int i=0;i<n;i++)
-			{
-				System.out.println(Math.pow(2,count));
+		int n = s.nextInt();
+		int count = 0;
+		if (n > 0 && n < 31) {
+			for (int i = 0; i < n; i++) {
+				System.out.println(Math.pow(2, count));
 				count++;
 
 			}
 
 		}
 
-		else{
+		else {
 			System.out.println("out of range");
-
-
-
 
 		}
 	}
-
-
-	public void harmonic()
-	{
-		Scanner s=new Scanner(System.in);
+	
+	
+//harmonic
+	public void harmonic() {
+		Scanner s = new Scanner(System.in);
 		System.out.println("enter the number");
-		int n=s.nextInt();
+		int n = s.nextInt();
 		int i;
-		float sum=0;
+		float sum = 0;
 
-
-
-
-		for(i=1;i<=n;i++)
-		{
-			sum=sum+(float)1/i;
+		for (i = 1; i <= n; i++) {
+			sum = sum + (float) 1 / i;
 		}
 
 		System.out.println(sum);
 	}
+	
+	//prime
+ public void Prime() {
 
-	public void Prime(){    
-
-		int i,m=0,flag=0;      
-		Scanner s=new Scanner(System.in);
+		int i, m = 0, flag = 0;
+		Scanner s = new Scanner(System.in);
 		System.out.println("enter the number");
-		int n=s.nextInt();   
-		m=n/2;      
-		if(n==0||n==1){  
-			System.out.println(n+" is not prime number");      
-		}else{  
-			for(i=2;i<=m;i++){      
-				if(n%i==0){      
-					System.out.println(n+" is not prime number");      
-					flag=1;      
-					break;      
-				}      
-			}      
-			if(flag==0)  { System.out.println(n+" is prime number"); }  
+		int n = s.nextInt();
+		m = n / 2;
+		if (n == 0 || n == 1) {
+			System.out.println(n + " is not prime number");
+		} else {
+			for (i = 2; i <= m; i++) {
+				if (n % i == 0) {
+					System.out.println(n + " is not prime number");
+					flag = 1;
+					break;
+				}
+			}
+			if (flag == 0) {
+				System.out.println(n + " is prime number");
+			}
 		}
 		System.out.print("Factors of " + n + " are: ");
-		for(int i1 = 1; i1 <= n; ++i1) {
+		for (int i1 = 1; i1 <= n; ++i1) {
 			if (n % i1 == 0) {
 				System.out.print(i1 + " ");
 
@@ -106,114 +107,363 @@ public class FunctionalUtility {
 		}
 	}
 
-	public void FlipCoin(int count)
-	{
-		int head=0;
-		int tail=0;
-		int i=count;
-		Random result=new Random();
-		while(count>0){
-			int r=result.nextInt(2);
-			if(r==0)
+ 
+ //flipcoin
+	public void FlipCoin(int count) {
+		int head = 0;
+		int tail = 0;
+		int i = count;
+		Random result = new Random();
+		while (count > 0) {
+			int r = result.nextInt(2);
+			if (r == 0)
 				tail++;
 			else
 				head++;
 			count--;
 		}
 
-		System.out.println("Number of heads="+head*100/i);
+		System.out.println("Number of heads=" + head * 100 / i);
 		System.out.println(head);
 		System.out.println(tail);
 
-		System.out.println("Number of tails="+tail*100/i);
+		System.out.println("Number of tails=" + tail * 100 / i);
 	}
+	
+	
+//gambler
+	public void Gambler(int $Stake,int $Goal,int n) {
+		
+		        int bets=0,wins=0,loss=0;
+		        for(int i=0;i<n;i++)
+		        {
+		            int money=$Stake;
+		            while(money>0 && money<$Goal)
+		            {
+		                bets++;
+		                if(Math.random()<0.5)
+		                {
+		                    money--;   //wins $1
 
-public void Gambler()
-{
-int win=0;
-int loss=0;
-Scanner s=new Scanner(System.in);
-System.out.println("Enter the goal");
-int goal=s.nextInt();
-System.out.println("Enter the stake");
-int stake=s.nextInt();
-System.out.println("Enter the no of times");
-int n=s.nextInt();
-for(int i=1;i<=n;i++){
-	int cash=stake;
-	while(cash>0 && cash<goal)
-	{
-		if(Math.random()<0.5)
-		{
-			cash++;
+		                }
+		                else
+		                    money++;   //loss $1
+
+		            }
+		            if(money==$Goal)
+
+		                wins++;
+		            else
+		                loss++;
+
+		        }
+		        System.out.println(wins+ ":"+loss+ ":"+n);    
+		        System.out.println("percentage of wins:" +wins*100/n);
+		        System.out.println("percentage of loss:" +loss*100/n);
+		        System.out.println("bet is" +bets);   
+		    }
+
+
+	//Anagram
+	public void Anagram(String string1, String string2) {
+
+		String s1 = string1.replaceAll("\\s", "");
+		String s2 = string2.replaceAll("\\s", "");
+		boolean status = true;
+		if (s1.length() != s2.length()) {
+			status = false;
+		} else {
+			char[] ArrayS1 = s1.toLowerCase().toCharArray();
+			char[] ArrayS2 = s2.toLowerCase().toCharArray();
+			Arrays.sort(ArrayS1);
+			Arrays.sort(ArrayS2);
+			status = Arrays.equals(ArrayS1, ArrayS2);
 		}
-		else{
-			cash--;
-	}
-	if(cash==goal){
-		win++;
-	}
-	else
-		loss++;
-		
-	
+		if (status) {
+			System.out.println(s1 + " and " + s2 + " are anagrams");
+		} else {
+			System.out.println(s1 + " and " + s2 + " are not anagrams");
+		}
 	}
 
-	System.out.println(100*win/n);
-	System.out.println(100*loss/n);
+	
+	//Triplets
+	public static List<String> sumOfThree(int[] arr) {
+
+		boolean flag = false;
+		List<String> tripletList = new ArrayList<>();
+		for (int p = 0; p < arr.length - 2; p++) {
+			for (int q = p + 1; q < arr.length - 1; q++) {
+				for (int r = q + 1; r < arr.length; r++) {
+
+					if (arr[p] + arr[q] + arr[r] == 0) {
+						System.out.println("description\n" + arr[p] + arr[q] + arr[r]);
+						tripletList.add("" + arr[p] + arr[q] + arr[r]);
+					}
+				}
+			}
+
+		}
+		return tripletList;
+
 }
-}
-
 	
-public void Anagram(String string1, String string2) 
-{  
-	
+	//array2d
+	public static int[][] arrayInt(int m,int n)
+	{
+	    int a[][]=new int[m][n];
+	    FunctionalUtility u=new FunctionalUtility(); 
+	    Scanner sc = new Scanner(System.in);
+	    System.out.println();
+	    System.out.println("Integer Array");
+
+	    for(int i = 0; i<m; i++)
+	    {
+	        for (int j = 0; j<n; j++)
+	        {
+	            a[i][j] = sc.nextInt();
+	        }  
+	    }
+	    return a;
+	}
+
+	public static double[][] arrayDouble(int m,int n)
+	{
+	    double b[][]=new double[m][n];
+	    FunctionalUtility u=new FunctionalUtility();
+	    Scanner sc = new Scanner(System.in);
+	    System.out.println();
+	    System.out.println("Double Array");
+
+	    for(int i = 0; i<m; i++)
+	    {
+	        for (int j = 0; j<n; j++)
+	        {
+	            b[i][j] = sc.nextDouble();
+	        }  
+	    }
+	    return b;
+	}
+
+	public static String[][] arrayBoolean(int m,int n)
+	{
+	String c[][]=new String[m][n];
+	FunctionalUtility  u=new FunctionalUtility();   
+	Scanner sc = new Scanner(System.in);
+	System.out.println();
+	System.out.println("Boolean Array");
+
+	    for(int i = 0; i<m; i++)
+	    {
+	        for (int j = 0; j<n; j++)
+	        {
+	            c[i][j] = sc.next();
+	        }  
+	    }
+	return c;
+	}
 
 
-	String s1 = string1.replaceAll("\\s", "");  
-    String s2 = string2.replaceAll("\\s", "");  
-    boolean status = true; 
-	        if (s1.length() != s2.length()) {  
-	            status = false;  
-	        } else {  
-	            char[] ArrayS1 = s1.toLowerCase().toCharArray();  
-	            char[] ArrayS2 = s2.toLowerCase().toCharArray();  
-	            Arrays.sort(ArrayS1);  
-	            Arrays.sort(ArrayS2);  
-	            status = Arrays.equals(ArrayS1, ArrayS2);  
-	        }  
-	        if (status) {  
-	            System.out.println(s1 + " and " + s2 + " are anagrams");  
-	        } else {  
-	            System.out.println(s1 + " and " + s2 + " are not anagrams");  
-	        }  
-	    }  
+	public static void display(int[][]a,double[][]b,String[][]c,int m,int n)
+	{
+	PrintWriter pw=new PrintWriter(System.out,true);
+
+	// integers
+	System.out.println();
+	pw.println("2D ARRAY INTEGER");
+
+	for(int i = 0; i<m; i++)
+	{
+	    for (int j = 0; j<n; j++)
+	    {
+	        pw.print("\t"+a[i][j]+" ");
+	    }
+	 pw.println("\t");
+	}
+
+	//double
+	System.out.println();
+	pw.println("2D ARRAY DOUBLE");
 	   
+	for(int i = 0; i<m; i++)
+	{
+	    for (int j = 0; j<n; j++)
+	    {
+	        pw.print("\t"+b[i][j]+" ");
+	    }
+	pw.println("\t");
+	}
+	     
+	// boolean
+	System.out.println();
+	pw.println("2D ARRAY BOOLEAN");
+	       
+	for(int i = 0; i<m; i++)
+	{
+	    for (int j = 0; j<n; j++)
+	    {
+	        pw.print("\t"+c[i][j]+" ");
+	    }
+	pw.println("\t");
+	}
+	}
+	
+	
+//distance//
+public void distance() {
+	
+	
+	 int x1,x2,y1,y2;
 
+double dis;
+
+Scanner sc=new Scanner(System.in);
+
+System.out.println("enter x1 point");
+
+    x1=sc.nextInt();
+
+    System.out.println("enter y1 point");
+
+    y1=sc.nextInt();
+
+System.out.println("enter x2point");
+
+    x2=sc.nextInt();
+
+System.out.println("enter y2 point");
+
+    y2=sc.nextInt();
+ 
+dis=Math.sqrt((x2-x1)*(x2-x1) + (y2-y1)*(y2-y1));
+ 	 	    
+  System.out.println("distancebetween"+"("+x1+","+y1+"),"+"("+x2+","+y2+")===>"+dis);
+} 
+
+
+
+//quadratic equation
+public static void quadraticequation() {
+	
+	
+	
+    int a, b, c;
+
+    double root1, root2, d;
+
+    Scanner s = new Scanner(System.in);
+
+    System.out.println("Given quadratic equation:ax^2 + bx + c");
+
+    System.out.print("Enter a:");
+
+    a = s.nextInt();
+
+    System.out.print("Enter b:");
+
+    b = s.nextInt();
+
+    System.out.print("Enter c:");
+
+    c = s.nextInt();
+
+    System.out.println("Given quadratic equation:"+a+"x^2 + "+b+"x + "+c);
+
+    d = b * b - 4 * a * c;
+
+    if(d > 0)
+
+    {
+
+        System.out.println("Roots are real and unequal");
+
+        root1 = ( - b + Math.sqrt(d))/(2*a);
+
+        root2 = (-b - Math.sqrt(d))/(2*a);
+
+        System.out.println("First root is:"+root1);
+
+        System.out.println("Second root is:"+root2);
+
+    }
+
+    else if(d == 0)
+
+    {
+
+        System.out.println("Roots are real and equal");
+
+        root1 = (-b+Math.sqrt(d))/(2*a);
+
+        System.out.println("Root:"+root1);
+
+    }
+
+    else
+
+    {
+
+        System.out.println("Roots are imaginary");
+
+    }
+
+}
+
+//windchill
+public static void windChill() {
+	Scanner input = new Scanner(System.in);
+
+	// Prompt the user to enter a temperature between -58F and 
+	// 41F and a wind speed greater than or equal to 2.
+	System.out.print("Enter the temperature in Fahrenheit " +
+		"between -58ºF and 41ºF: ");
+	double temperature = input.nextDouble();
+	System.out.print("Enter the wind speed (>= 2) in miles per hour: ");
+	double speed = input.nextDouble();
+
+	// Compute the wind chill index
+	double windChill = 35.74 + 0.6215 * temperature -
+							 35.75 * Math.pow(speed, 0.16) +
+							 0.4275 * temperature * Math.pow(speed, 0.16);
+
+	// Display result
+	System.out.println("The wind chill index is " + windChill);
+}
+
+//stopwatch
+public void stopWatch() {
+
+ double startTimer=0;
+ double stopTimer=0;
+ double timeElapsed;
+
+//to start the timer
+public void start()
+{
+    startTimer=System.currentTimeMillis();
+   
+}
+
+//to stop the timer
+public void stop()
+{
+    stopTimer=System.currentTimeMillis();
+   
+}
+
+//Calculates the time elapsed
+public void timeTaken()
+{
+    timeElapsed=stopTimer-startTimer;
+    System.out.println("time elapsed is" + timeElapsed);
+}
 }
 
 
 
 
-	
-	
-	
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 
 
-
-
+}
 
 

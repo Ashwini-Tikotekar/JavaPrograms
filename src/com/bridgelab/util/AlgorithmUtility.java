@@ -3,6 +3,11 @@ import java.util.Scanner;
 public class AlgorithmUtility {
 	
 
+	private static String[] args;
+
+
+
+
 	public void Prime()
 	{
 	   
@@ -50,28 +55,36 @@ public class AlgorithmUtility {
 	                } 
 	        return arr;
 	    } 	        
-	        
+	 public void tempconversion() {
+		  
+		    System.out.println("Enter the temperature in Fahrenheit: ");
+		    Scanner scanner=new Scanner(System.in);
+		    float fahrenheit=scanner.nextFloat();
+		    float celsius=(fahrenheit-32)*5/9;
+		    System.out.println("Temperature in Celsius: "+celsius);
+		  }
+	 
 
-public static void countCurrency(int amount) 
-{ 
-    int[] notes = new int[]{ 2000, 500, 200, 100, 50, 20, 10, 5, 1 }; 
-    int[] noteCounter = new int[9]; 
-   
-    // count notes using Greedy approach 
-    for (int i = 0; i < 9; i++) { 
-        if (amount >= notes[i]) { 
-            noteCounter[i] = amount / notes[i]; 
-            amount = amount - noteCounter[i] * notes[i]; 
-        } 
-    } 
-   
-    // Print notes 
-    System.out.println("Currency Count ->"); 
-    for (int i = 0; i < 9; i++) { 
-        if (noteCounter[i] != 0) { 
-            System.out.println(notes[i] + " : "
-                + noteCounter[i]); 
-        } 
- }
+
+
+//sqrt
+public static void sqrt(int n) {
+	 double c=n;
+     double epsilon = 1e-15;    // relative error tolerance
+     double t=c;              // estimate of the square root of c
+
+     // repeatedly apply Newton update step until desired precision is achieved
+     while (Math.abs(t - c/t) > epsilon*t) {
+         t = (c/t + t) / 2.0;
+         System.out.println(t);
+     }
+
+     // print out the estimate of the square root of c
+    
+	
+	
+	
 }
 }
+
+
