@@ -1,8 +1,103 @@
 package com.bridgelab.util;
 import java.util.Scanner;
-public class AlgorithmUtility {
-	
+public class AlgorithmUtility{
+	static Scanner sc = new Scanner(System.in);
 
+	   
+	     public static int intValue()
+	        {
+	            try
+	            {
+	               
+	            return sc.nextInt();   
+	               
+	             }
+	            catch(Exception e)
+	            {
+	                e.printStackTrace();
+	               
+	            }
+	            return 0;
+	        }
+	     
+	        
+	          public static String StringValue()
+	             {
+	                 try
+	                 {
+	                    
+	                 return sc.nextLine();   
+	                    
+	                  }
+	                 catch(Exception e)
+	                 {
+	                     e.printStackTrace();
+	                    
+	                 }
+	                 return null; 
+	             }
+	        
+
+		        
+	          public static double doubValue()
+	             {
+	                 try
+	                 {
+	                    
+	                 return sc.nextDouble();	                    
+	                  }
+	                 catch(Exception e)
+	                 {
+	                     e.printStackTrace();
+	                    
+	                 }
+	                 return 0.0; 
+	             }
+
+	     
+	     
+	         
+	          public static long longValue()
+	             {
+	                 try
+	                 {
+	                    
+	                 return sc.nextLong();  
+	                    
+	                  }
+	                 catch(Exception e)
+	                 {
+	                     e.printStackTrace();
+	                    
+	                 }
+	                 return 0; 
+	             }
+		        
+	          public static boolean booleanValue()
+	             {
+	                 try
+	                 {
+	                    
+	                 return sc.hasNext();  
+	                    
+	                  }
+	                 catch(Exception e)
+	                 {
+	                     e.printStackTrace();
+	                    
+	                 }
+	                 return false; 
+	             }
+
+	     
+	     
+	     
+	     
+	     
+	     
+	     
+	     
+	    // 
 	private static String[] args;
 
 
@@ -85,6 +180,89 @@ public static void sqrt(int n) {
 	
 	
 }
+//insertion sort
+public static void insertionSort() {
+	char temp;
+	String sortedString="";
+	Scanner inputString=new Scanner(System.in);
+	System.out.println("enter the string");
+	String str=inputString.next();
+	inputString.close();
+	char[] chArr=str.toCharArray();
+	for( int i=0;i<chArr.length;i++) { 
+		for( int j=0;j<chArr.length;j++) {
+			if(chArr[i]<chArr[j]) {
+				temp=chArr[i];
+				chArr[i]=chArr[j];
+				chArr[j]=temp;
+				
+			}
+		}
+	}
+	for( int k=0;k<chArr.length;k++) {
+		sortedString=sortedString+chArr[k];
+	}
+	System.out.println("our sorted string is"+sortedString);
+	
 }
+}
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		
+		
+		
+		
+
+			
+		
+
+
+
+
+
 
 

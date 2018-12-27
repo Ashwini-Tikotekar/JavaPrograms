@@ -18,7 +18,7 @@ public class FunctionalUtility {
 			System.out.println("please enter more than three characters");
 	}
 
-	//lepayear//
+	//leapyear//
 	public void LeapYear() {
 		int year = 0;
 		Scanner s = new Scanner(System.in);
@@ -132,13 +132,13 @@ public class FunctionalUtility {
 	
 	
 //gambler
-	public void Gambler(int $Stake,int $Goal,int n) {
+	public void Gambler(int Stake,int Goal,int n) {
 		
 		        int bets=0,wins=0,loss=0;
 		        for(int i=0;i<n;i++)
 		        {
-		            int money=$Stake;
-		            while(money>0 && money<$Goal)
+		            int money=Stake;
+		            while(money>0 && money<Goal)
 		            {
 		                bets++;
 		                if(Math.random()<0.5)
@@ -150,7 +150,7 @@ public class FunctionalUtility {
 		                    money++;   //loss $1
 
 		            }
-		            if(money==$Goal)
+		            if(money==Goal)
 
 		                wins++;
 		            else
@@ -431,39 +431,85 @@ public static void windChill() {
 }
 
 //stopwatch
-public void stopWatch() {
 
- double startTimer=0;
- double stopTimer=0;
- double timeElapsed;
-
-//to start the timer
-public void start()
-{
-    startTimer=System.currentTimeMillis();
+	//to start timer
+	public  static long start()
+	{
+		 long startTimer=System.currentTimeMillis();
+		 return startTimer;
+	}
+	
+	// to stop timer
+	public static long stop()
+	{
+		long stopTimer=System.currentTimeMillis();
+		 return stopTimer;
+	}
+	
+	public static long getElapsedTime(long startTimer, long stopTimer) 
+	{
+		long elapsed=stopTimer-startTimer;
+      return elapsed;
+	
+	}	
+	
+	
+	
+//primefactors
+	public static void primeFactors(int number) 
+	{
+		
+		for (int i = 2; i <= number; i++) {
+			 
+            while (number % i == 0) {
+                System.out.print(i + " ");
+                number = number / i;
+            }
+        }
+ 
+        if (number >2) //brute force
+        	System.out.println();
+	}
    
-}
 
-//to stop the timer
-public void stop()
+//coupen number
+public int couponNumber(int n)
 {
-    stopTimer=System.currentTimeMillis();
-   
+    boolean[] collect= new boolean[n]; 
+    int count = 0;                          
+    int dist = 0;                       
+    while (dist< n)
+    {
+        Random r=new Random();
+        int value =r.nextInt(n);
+        count++;                                
+        if (collect[value]==false)
+        {
+            dist++;
+            System.out.println(dist);
+        }
+            else
+            {
+               collect[value] = true;
+            }
+       }
+
+  return  count;
 }
-
-//Calculates the time elapsed
-public void timeTaken()
-{
-    timeElapsed=stopTimer-startTimer;
-    System.out.println("time elapsed is" + timeElapsed);
 }
-}
+	
+		
 
 
 
+	
+	
+	
+	
+	
+	
+	
+	
 
-
-
-}
-
+	
 
