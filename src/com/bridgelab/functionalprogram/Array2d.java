@@ -1,4 +1,15 @@
-package com.bridgelab.functionalprogram;
+package com.bridgelab.functionalprogram; 
+/******************************************************************************
+ *  Compilation:  javac -d bin  Array2d .java
+ *  Execution:    java -cp bin com.bridgelabz.util. Array2d 
+ *  
+ *  Purpose: 2d Array
+ *
+ *  @author  Ashwini Tikotekar
+ *  @version 1.0
+ *  @since   26-12-2018
+ *
+ ******************************************/
 
 import java.util.Scanner;
 

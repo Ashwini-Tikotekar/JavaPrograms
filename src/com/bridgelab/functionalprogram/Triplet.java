@@ -1,4 +1,16 @@
 package com.bridgelab.functionalprogram;
+/******************************************************************************
+ *  Compilation:  javac -d bin  Triplet   .java
+ *  Execution:    java -cp bin com.bridgelabz.util.Triplet
+ *  
+ *  Purpose:  Read in N integers and counts the   number 
+ *  of triples that sum to exactly 0.
+ *  @author  Ashwini Tikotekar
+ *  @version 1.0
+ *  @since   24-12-2018
+ *
+ ******************************************/
+
 
 import java.util.ArrayList;
 import java.util.List;

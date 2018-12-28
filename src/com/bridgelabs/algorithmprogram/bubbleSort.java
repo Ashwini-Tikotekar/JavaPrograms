@@ -1,4 +1,13 @@
 package com.bridgelabs.algorithmprogram;
+/******************************************************************************
+ *  Compilation:  javac -d bin   bubbleSort  .java
+ *  Execution:    java -cp bin com.bridgelabz.util. bubbleSort 
+ *  Purpose:  Reads in integers prints them in sorted order using Bubble Sort
+ *  @author  Ashwini Tikotekar
+ *  @version 1.0
+ *  @since   24-12-2018
+ *
+ ******************************************/
 
 import java.util.Scanner;
 

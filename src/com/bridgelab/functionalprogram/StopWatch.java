@@ -1,4 +1,18 @@
 package com.bridgelab.functionalprogram;
+/******************************************************************************
+ *  Compilation:  javac -d bin   StopWatch   .java
+ *  Execution:    java -cp bin com.bridgelabz.util.StopWatch 
+ *  
+ *  Purpose:  measuring the time that elapses between the start and end clicks
+
+
+
+ *  @author  Ashwini Tikotekar
+ *  @version 1.0
+ *  @since   24-12-2018
+ *
+ ******************************************/
+
 
 import java.util.Scanner;
 

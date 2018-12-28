@@ -1,4 +1,15 @@
 package com.bridgelabs.algorithmprogram;
+/******************************************************************************
+ *  Compilation:  javac -d bin  PrimeNumber .java
+ *  Execution:    java -cp bin com.bridgelabz.util. PrimeNumber
+ *  Purpose:    prime or not
+ *  @author  Ashwini Tikotekar
+ *  @version 1.0
+ *  @since   24-12-2018
+ *
+ ******************************************/
+
+
 
 import java.util.Scanner;
 

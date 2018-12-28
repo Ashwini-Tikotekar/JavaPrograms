@@ -499,17 +499,3 @@ public int couponNumber(int n)
 }
 	
 		
-
-
-
-	
-	
-	
-	
-	
-	
-	
-	
-
-	
-

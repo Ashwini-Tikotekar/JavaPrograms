@@ -1,5 +1,6 @@
 package com.bridgelab.util;
 import java.util.Scanner;
+import java.util.Stack;
 public class AlgorithmUtility{
 	static Scanner sc = new Scanner(System.in);
 
@@ -205,13 +206,164 @@ public static void insertionSort() {
 	System.out.println("our sorted string is"+sortedString);
 	
 }
+
+//day of week
+public static void dayOfWeek(int m,int d,int y) {
+	
+	
+	int y0 = y − (14 − m) / 12;
+		int 	x = y0 + y0/4 − y0/100 + y0/400;
+	int		m0 = m + 12 × ((14 − m) / 12) − 2;
+		int	d0 = (d + x + 31m0 / 12) mod 7;
+
+	
 }
+	
+	
+	//monthly payment//
+public  static void monthlyPayment(int P,double R,int Y)
+{
+    double r=R/(12*100);
+    double n=12*Y;
+
+    double c=Math.pow((1+r),-n);
+    double payment=((P*r)/1-c);
+    System.out.println(payment);
+}
+
+//vending machine	
+public  void calculate(int money,int[]notes )
+	{
+	int i=0;
+  	int total=0;
+
+  //Initialization of New Array
+  	
+		//calling calculate Function
+    int rem;
+	if(money==0)
+	{
+		System.out.println("no money");
+	}
+	else
+	{ 
+		for(i=0;i<notes.length;i++) {
+	
+		if(money>=notes[i])
+		{
+			// logic for Calculating The notes
+			int calNotes =money/notes[i];
+			rem = money%notes[i];
+			money =rem;
+			total += calNotes;
+			System.out.println(notes[i]+   " Notes ---> " +calNotes );
+		}
+		
+		
+	}
+}
+}
+//find your number
+public void findNumber(String value,int low, int up, int mid, int count, int n)
+{
+   
+       System.out.println("Is this the number you taught?:"+mid);
+   
+//       System.out.println("If the number you taught is greater than " +mid+ " then enter HIGH");
+//       System.out.println();
+//   System.out.println("If the number you taught is greater than " +mid+ " then enter LOW");
+//   System.out.println();
+//   System.out.println("If the number you taught is same as " +mid+ " then enter YES");
+//      
+    System.out.println("Enter your answer in 'yes' or 'high' or 'low'");
+    value=AlgorithmUtility.StringValue();
+       do
+    {
+      
+            if (value.equals("high"))
+        {
+            low= mid;
+            count++;
+            mid=(low+ up+1)/2;
+            findNumber(value,low,  up,  mid, count, n);
+        }
+            
+            else if(value.equals("low"))
+         {
+             up=mid;
+             count++;
+             mid=(low+ up+1)/2;
+             findNumber(value,low,  up,  mid,count, n);
+         }
+            
+            
+        else if (value.equals("yes"))
+        {
+            System.out.println("The number you thought was: "+mid);
+            int no=count+1;
+            System.out.println("It takes "+no+" times to find the number which you taught");
+           
+            break;
+        }
+
+    }
+    while(low<=up);
+        if (count>n)
+        {
+            System.out.println("Number is not found");
+        }
+        else
+        {
+            System.exit(0);
+        }
+        }
+
+
+//DECIMALTOBINARY
+
+public static void decimaltobinary()
+{Scanner in = new Scanner(System.in);
+
+// Create Stack object
+Stack<Integer> stack = new Stack<Integer>();
+
+// User input 
+System.out.println("Enter decimal number: ");
+int num = in.nextInt();
+while (num != 0)
+{
+  int d = num % 2;
+  stack.push(d);
+  num /= 2;
+} 
+
+System.out.print("\nBinary representation is:");
+while (!(stack.isEmpty() ))
+{
+  System.out.print(stack.pop());
+}
+System.out.println();
+}
+}
+
+
+
 
 	
 	
 	
 	
 	
+	
+	
+	
+
+	
+
+
+
+
+
 	
 	
 	

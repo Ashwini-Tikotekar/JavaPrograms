@@ -1,4 +1,15 @@
 package com.bridgelabs.algorithmprogram;
+/******************************************************************************
+ *  Compilation:  javac -d bin   Anagram  .java
+ *  Execution:    java -cp bin com.bridgelabz.util. Anagram
+ *  Purpose: The Two Strings are Anagram or not....
+
+ *  @author  Ashwini Tikotekar
+ *  @version 1.0
+ *  @since   24-12-2018
+ *
+ ******************************************/
+
 
 import java.util.Scanner;
 
@@ -15,19 +26,9 @@ public static void main(String[] args){
 	FunctionalUtility a=new FunctionalUtility();
 	a.Anagram( s1, s2);
 		
-	
-		
-		
-		
-	
-	
-	
-	
-		
-		
-	
 }
-
 }
+		
+	
 
 
