@@ -28,7 +28,7 @@ public class Triplet {
 		System.out.println("enter the value of n");
 		n = scanner.nextInt();
 				
-		 scanner.close();
+		
 		int arr[]=new int[n];
 		    
 		    for(int i=0;i<n;i++)

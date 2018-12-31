@@ -158,6 +158,13 @@ public class AlgorithmUtility{
 		    float fahrenheit=scanner.nextFloat();
 		    float celsius=(fahrenheit-32)*5/9;
 		    System.out.println("Temperature in Celsius: "+celsius);
+		    
+		    System.out.println("Enter the temperature in  Celsius:");
+		    Scanner sc=new Scanner(System.in);
+		    float Celsius=sc.nextFloat();
+		     float Fahrenheit=( Celsius*9/5) + 32;
+
+		    System.out.println("Temperature in  Fahrenheit:"+Fahrenheit);
 		  }
 	 
 
@@ -172,38 +179,13 @@ public static void sqrt(int n) {
      // repeatedly apply Newton update step until desired precision is achieved
      while (Math.abs(t - c/t) > epsilon*t) {
          t = (c/t + t) / 2.0;
-         System.out.println(t);
      }
+     System.out.println(t);
 
      // print out the estimate of the square root of c
     
 	
 	
-	
-}
-//insertion sort
-public static void insertionSort() {
-	char temp;
-	String sortedString="";
-	Scanner inputString=new Scanner(System.in);
-	System.out.println("enter the string");
-	String str=inputString.next();
-	inputString.close();
-	char[] chArr=str.toCharArray();
-	for( int i=0;i<chArr.length;i++) { 
-		for( int j=0;j<chArr.length;j++) {
-			if(chArr[i]<chArr[j]) {
-				temp=chArr[i];
-				chArr[i]=chArr[j];
-				chArr[j]=temp;
-				
-			}
-		}
-	}
-	for( int k=0;k<chArr.length;k++) {
-		sortedString=sortedString+chArr[k];
-	}
-	System.out.println("our sorted string is"+sortedString);
 	
 }
 
@@ -212,7 +194,7 @@ public static void dayOfWeek(int m,int d,int y) {
 	
 	
 	int y0 = y − (14 − m) / 12;
-		int 	x = y0 + y0/4 − y0/100 + y0/400;
+		int x = y0 + y0/4 − y0/100 + y0/400;
 	int		m0 = m + 12 × ((14 − m) / 12) − 2;
 		int	d0 = (d + x + 31m0 / 12) mod 7;
 
@@ -232,37 +214,34 @@ public  static void monthlyPayment(int P,double R,int Y)
 }
 
 //vending machine	
-public  void calculate(int money,int[]notes )
-	{
-	int i=0;
-  	int total=0;
+static int rem;
+static int i=0;
+static int total=0;
+  public static int calculate(int money,int[]notes)
+{
+    //Method to calculate the notes to be dispatched
+   
+    if(money==0)
+    {
+        return -1 ;
+    }
+    else
+    {
+        if(money>=notes[i])
+        {
+            int calNotes =money/notes[i];
+            rem = money%notes[i];
+            money =rem;
+            total += calNotes;
+            System.out.println(notes[i]+  "rs Notes are  " +calNotes );
+        }
+        i++;
+        return calculate(money, notes);//method recursion
+    }
+}
+		
 
-  //Initialization of New Array
-  	
-		//calling calculate Function
-    int rem;
-	if(money==0)
-	{
-		System.out.println("no money");
-	}
-	else
-	{ 
-		for(i=0;i<notes.length;i++) {
-	
-		if(money>=notes[i])
-		{
-			// logic for Calculating The notes
-			int calNotes =money/notes[i];
-			rem = money%notes[i];
-			money =rem;
-			total += calNotes;
-			System.out.println(notes[i]+   " Notes ---> " +calNotes );
-		}
-		
-		
-	}
-}
-}
+
 //find your number
 public void findNumber(String value,int low, int up, int mid, int count, int n)
 {
@@ -321,82 +300,123 @@ public void findNumber(String value,int low, int up, int mid, int count, int n)
 
 //DECIMALTOBINARY
 
-public static void decimaltobinary()
-{Scanner in = new Scanner(System.in);
+public static int[] toBinary(int num) {
+    int bin[] = new int[8];
+    int index = 0;
+    while (num > 0) {
+        bin[index++] = num % 2;
+        num = num / 2;
+    }
+    return bin;
+}
 
-// Create Stack object
-Stack<Integer> stack = new Stack<Integer>();
+//swap nibbles
+ public static int swapNibbles(int x) 
+{ 
+   
+	  return ((x & 0x0F) << 4 | (x & 0xF0) >> 4);     
 
-// User input 
-System.out.println("Enter decimal number: ");
-int num = in.nextInt();
-while (num != 0)
-{
-  int d = num % 2;
-  stack.push(d);
-  num /= 2;
+	 
 } 
+	
+ 
+//anagram
+ public static void anagram(String str1, String str2) {
+		
+		
+	    int len, len1, len2, i, j, found=0, not_found=0;
+	    len1 = str1.length();
+	    len2 = str2.length();
+	    
+		
+	    if(len1 == len2)
+	    {
+	        len = len1;
+	        for(i=0; i<len; i++)
+	        {
+	            found = 0;
+	            for(j=0; j<len; j++)
+	            {
+	                if(str1.charAt(i) == str2.charAt(j))
+	                {
+	                    found = 1;
+	                    break;
+	                }
+	            }
+	            if(found == 0)
+	            {
+	                not_found = 1;
+	                break;
+	            }
+	        }
+	        if(not_found == 1)
+	        {
+	            System.out.print("Strings are not Anagram to Each Other..!!");
+	        }
+	        else
+	        {
+	            System.out.print("Strings are Anagram");
+	        }
+	    }
+	    else
+	    {
+	        System.out.print("Both Strings Must have the same number of Character to be an Anagram");
+	    }
+	}
+ 
+ 
+//insertion sort
+ 
+ public static String[] insertionSort(String array[], int f){
+     String temp="";
+     for(int i=0;i<f;i++){
+     for(int j=i+1;j<f;j++){
+     if(array[i].compareToIgnoreCase(array[j])>0){
+     temp = array[i];
+     array[i]=array[j];
+     array[j]=temp;
+     }
+     }
+     }
+     return array;
+     }
+ 
+ //merge sort
+ 
+ public static void mergeSort(String array[],int low,int high)
+ {
+     int n=high-low;
+     if(n<=1)
+         return;
+     int mid=low+n/2;
+     mergeSort(array,low,mid);
+     mergeSort(array,mid,high);
+     String[] temparr=new String[n];
+     int i=low,j=mid;
+     for(int k=0;k<n;k++)
+     {
+         if(i==mid)
+             temparr[k]=array[j++];
+         else if(j==high)
+             temparr[k]=array[i++];
+         else if(array[j].compareTo(array[i])<0)
+             temparr[k]=array[j++];
+         else
+             temparr[k]=
+             array[i++];
+     }
 
-System.out.print("\nBinary representation is:");
-while (!(stack.isEmpty() ))
-{
-  System.out.print(stack.pop());
+     for(int k=0;k<n;k++)
+     {
+         array[low +k]=temparr[k];
+     }
+ }
+
 }
-System.out.println();
-}
-}
-
-
-
-
 	
 	
 	
-	
-	
-	
-	
-	
-
-	
-
-
-
-
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	 
 	
 	
 	

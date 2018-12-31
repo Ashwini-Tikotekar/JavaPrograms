@@ -1,5 +1,4 @@
 package com.bridgelab.util;
-
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -7,10 +6,95 @@ import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
-//replace string//
-public class FunctionalUtility {
 
-	public void replacestring(String s) {
+
+
+//replace string//
+public class FunctionalUtility<E> { 
+	static Scanner sc = new Scanner(System.in);
+
+	   
+    public static int intValue()
+       {
+           try
+           {
+              
+           return sc.nextInt();   
+              
+            }
+           catch(Exception e)
+           {
+               e.printStackTrace();
+              
+           }
+           return 0;
+       }   
+           
+           public static String StringValue()
+           {
+               try
+               {
+                  
+               return sc.next(); 
+                  
+                }
+               catch(Exception e)
+               {
+                   e.printStackTrace();
+                  
+               }
+               return null;
+       }
+           public static boolean booleanValue()
+           {
+               try
+               {
+                  
+               return sc.hasNext();  
+                  
+                }
+               catch(Exception e)
+               {
+                   e.printStackTrace();
+                  
+               }
+               return false; 
+           }
+           
+	          public static double doubValue()
+	             {
+	                 try
+	                 {
+	                    
+	                 return sc.nextDouble();	                    
+	                  }
+	                 catch(Exception e)
+	                 {
+	                     e.printStackTrace();
+	                    
+	                 }
+	                 return 0.0; 
+	             }
+	          
+	          public static long longValue()
+	             {
+	                 try
+	                 {
+	                    
+	                 return sc.nextLong();  
+	                    
+	                  }
+	                 catch(Exception e)
+	                 {
+	                     e.printStackTrace();
+	                    
+	                 }
+	                 return 0; 
+	             }
+
+
+
+	public void replaceString(String s) {
 		if (s.length() >= 3) {
 			System.out.println(s.replaceAll("username", "ash"));
 
@@ -19,7 +103,7 @@ public class FunctionalUtility {
 	}
 
 	//leapyear//
-	public void LeapYear() {
+	public void leapYear() {
 		int year = 0;
 		Scanner s = new Scanner(System.in);
 		System.out.println("enter any year");
@@ -46,7 +130,7 @@ public class FunctionalUtility {
 		int n = s.nextInt();
 		int count = 0;
 		if (n > 0 && n < 31) {
-			for (int i = 0; i < n; i++) {
+			for (int i = 0; i <=n; i++) {
 				System.out.println(Math.pow(2, count));
 				count++;
 
@@ -109,7 +193,7 @@ public class FunctionalUtility {
 
  
  //flipcoin
-	public void FlipCoin(int count) {
+	public void flipCoin(int count) {
 		int head = 0;
 		int tail = 0;
 		int i = count;
@@ -161,30 +245,8 @@ public class FunctionalUtility {
 		        System.out.println("percentage of wins:" +wins*100/n);
 		        System.out.println("percentage of loss:" +loss*100/n);
 		        System.out.println("bet is" +bets);   
-		    }
-
-
-	//Anagram
-	public void Anagram(String string1, String string2) {
-
-		String s1 = string1.replaceAll("\\s", "");
-		String s2 = string2.replaceAll("\\s", "");
-		boolean status = true;
-		if (s1.length() != s2.length()) {
-			status = false;
-		} else {
-			char[] ArrayS1 = s1.toLowerCase().toCharArray();
-			char[] ArrayS2 = s2.toLowerCase().toCharArray();
-			Arrays.sort(ArrayS1);
-			Arrays.sort(ArrayS2);
-			status = Arrays.equals(ArrayS1, ArrayS2);
-		}
-		if (status) {
-			System.out.println(s1 + " and " + s2 + " are anagrams");
-		} else {
-			System.out.println(s1 + " and " + s2 + " are not anagrams");
-		}
-	}
+	}	
+	
 
 	
 	//Triplets
@@ -209,105 +271,67 @@ public class FunctionalUtility {
 }
 	
 	//array2d
-	public static int[][] arrayInt(int m,int n)
-	{
-	    int a[][]=new int[m][n];
-	    FunctionalUtility u=new FunctionalUtility(); 
-	    Scanner sc = new Scanner(System.in);
-	    System.out.println();
-	    System.out.println("Integer Array");
+	public  static void array2D() {
+		FunctionalUtility f1=new FunctionalUtility();
+        System.out.println("enter the number of rows:");
+        int m=FunctionalUtility.intValue();    
+        System.out.println("enter the number of column:");
+        int n=FunctionalUtility.intValue();    
+        System.out.println("1:Integer  2:Double  3:Boolean" );
+        int flag=FunctionalUtility.intValue();
+        switch(flag)
+        {
+        case 1:Integer[][] array=new Integer[m][n];
+        for(int i=0;i<m;i++)
+        {
+            for(int j=0;j<n;j++)
+            {
+                array[i][j]=FunctionalUtility.intValue();
+            }
+        }
+        f1.displayArray(array,m,n);
+        break;
 
-	    for(int i = 0; i<m; i++)
-	    {
-	        for (int j = 0; j<n; j++)
-	        {
-	            a[i][j] = sc.nextInt();
-	        }  
-	    }
-	    return a;
+
+        case 2:Double[][] darray=new Double[m][n];
+        for(int i=0;i<m;i++)
+        {
+            for(int j=0;j<n;j++)
+            {
+
+                darray[i][j]=FunctionalUtility.doubValue();            }
+        }
+        f1.displayArray(darray,m,n);
+        break;
+
+        case 3:Boolean[][] barray=new Boolean[m][n];
+        for(int i=0;i<m;i++)
+        {
+            for(int j=0;j<n;j++)
+            {
+                barray[i][j]=FunctionalUtility.booleanValue();
+            }
+        }
+        f1.displayArray(barray,m,n);
+        break;
+        
+        default: System.out.println("Select among the choice");
+        }
+        
+        //FunctionalUtility.close();
+    }
+	public   void displayArray(E[][]garray,int m,int n)
+    {
+        for(int i=0;i< m;i++)
+        {
+            for(int j=0;j<n;j++)
+            {
+                System.out.print(garray[i][j] +" ");
+            }
+            System.out.println();
+        }
+		
 	}
-
-	public static double[][] arrayDouble(int m,int n)
-	{
-	    double b[][]=new double[m][n];
-	    FunctionalUtility u=new FunctionalUtility();
-	    Scanner sc = new Scanner(System.in);
-	    System.out.println();
-	    System.out.println("Double Array");
-
-	    for(int i = 0; i<m; i++)
-	    {
-	        for (int j = 0; j<n; j++)
-	        {
-	            b[i][j] = sc.nextDouble();
-	        }  
-	    }
-	    return b;
-	}
-
-	public static String[][] arrayBoolean(int m,int n)
-	{
-	String c[][]=new String[m][n];
-	FunctionalUtility  u=new FunctionalUtility();   
-	Scanner sc = new Scanner(System.in);
-	System.out.println();
-	System.out.println("Boolean Array");
-
-	    for(int i = 0; i<m; i++)
-	    {
-	        for (int j = 0; j<n; j++)
-	        {
-	            c[i][j] = sc.next();
-	        }  
-	    }
-	return c;
-	}
-
-
-	public static void display(int[][]a,double[][]b,String[][]c,int m,int n)
-	{
-	PrintWriter pw=new PrintWriter(System.out,true);
-
-	// integers
-	System.out.println();
-	pw.println("2D ARRAY INTEGER");
-
-	for(int i = 0; i<m; i++)
-	{
-	    for (int j = 0; j<n; j++)
-	    {
-	        pw.print("\t"+a[i][j]+" ");
-	    }
-	 pw.println("\t");
-	}
-
-	//double
-	System.out.println();
-	pw.println("2D ARRAY DOUBLE");
-	   
-	for(int i = 0; i<m; i++)
-	{
-	    for (int j = 0; j<n; j++)
-	    {
-	        pw.print("\t"+b[i][j]+" ");
-	    }
-	pw.println("\t");
-	}
-	     
-	// boolean
-	System.out.println();
-	pw.println("2D ARRAY BOOLEAN");
-	       
-	for(int i = 0; i<m; i++)
-	{
-	    for (int j = 0; j<n; j++)
-	    {
-	        pw.print("\t"+c[i][j]+" ");
-	    }
-	pw.println("\t");
-	}
-	}
-	
 	
 //distance//
 public void distance() {
@@ -343,7 +367,7 @@ dis=Math.sqrt((x2-x1)*(x2-x1) + (y2-y1)*(y2-y1));
 
 
 //quadratic equation
-public static void quadraticequation() {
+public static void quadraticEquation() {
 	
 	
 	
@@ -467,8 +491,8 @@ public static void windChill() {
             }
         }
  
-        if (number >2) //brute force
-        	System.out.println();
+//        if (number >2) //brute force
+//        	System.out.println();
 	}
    
 
@@ -497,5 +521,4 @@ public int couponNumber(int n)
   return  count;
 }
 }
-	
-		
+

@@ -20,7 +20,7 @@ public class ReplaceString {
 	public static void main(String[] args) {
 		FunctionalUtility f = new FunctionalUtility();
 		String s = "hello username how are you";
-		f.replacestring(s);
+		f.replaceString(s);
 
 	}
 

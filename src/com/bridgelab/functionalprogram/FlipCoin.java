@@ -23,7 +23,7 @@ public class FlipCoin {
 		System.out.println("enter number of times the coin has to be flipped");
 		int count=s.nextInt();
 		FunctionalUtility fp=new FunctionalUtility();
-		fp.FlipCoin(count);
+		fp.flipCoin(count);
 	}
 
 }

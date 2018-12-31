@@ -26,13 +26,8 @@ public class Array2d {
         int n = sc.nextInt();
        
         //calling methods
-        int [][] a = u.arrayInt(m,n);
-        double [][] b = u.arrayDouble(m,n);
-        String [][] c = u.arrayBoolean(m,n);
-               
-        //calling method
-        FunctionalUtility.display(a,b,c,m,n);
-
+     FunctionalUtility.array2D();
+        
        
     }
 				

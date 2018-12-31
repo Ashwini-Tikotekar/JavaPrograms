@@ -15,7 +15,7 @@ public class Gambler {
         int totalTimes=sc.nextInt();
         FunctionalUtility utility = new FunctionalUtility();
       //calling the method
-        utility.Gambler(Stake, Goal, n);   
+        utility.Gambler(stack, goal, totalTimes);   
         
 		
 	}
