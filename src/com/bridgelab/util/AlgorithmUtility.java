@@ -193,10 +193,10 @@ public static void sqrt(int n) {
 public static void dayOfWeek(int m,int d,int y) {
 	
 	
-	int y0 = y − (14 − m) / 12;
-		int x = y0 + y0/4 − y0/100 + y0/400;
-	int		m0 = m + 12 × ((14 − m) / 12) − 2;
-		int	d0 = (d + x + 31m0 / 12) mod 7;
+	int y0 = y - (14 - m) / 12;
+    int  x = y0 + y0/4 - y0/100 + y0/400;
+    int m0 = m + 12 * ((14 - m) / 12) - 2;
+	int	d0 = (d + x + 31*m0 / 12) % 7;
 
 	
 }
@@ -243,59 +243,51 @@ static int total=0;
 
 
 //find your number
-public void findNumber(String value,int low, int up, int mid, int count, int n)
-{
-   
-       System.out.println("Is this the number you taught?:"+mid);
-   
-//       System.out.println("If the number you taught is greater than " +mid+ " then enter HIGH");
-//       System.out.println();
-//   System.out.println("If the number you taught is greater than " +mid+ " then enter LOW");
-//   System.out.println();
-//   System.out.println("If the number you taught is same as " +mid+ " then enter YES");
-//      
-    System.out.println("Enter your answer in 'yes' or 'high' or 'low'");
-    value=AlgorithmUtility.StringValue();
-       do
-    {
+  public  static void binarySearch(int lower,int upper,int middle,int count,String input,int n)
+  {
       
-            if (value.equals("high"))
-        {
-            low= mid;
-            count++;
-            mid=(low+ up+1)/2;
-            findNumber(value,low,  up,  mid, count, n);
-        }
-            
-            else if(value.equals("low"))
-         {
-             up=mid;
-             count++;
-             mid=(low+ up+1)/2;
-             findNumber(value,low,  up,  mid,count, n);
-         }
-            
-            
-        else if (value.equals("yes"))
-        {
-            System.out.println("The number you thought was: "+mid);
-            int no=count+1;
-            System.out.println("It takes "+no+" times to find the number which you taught");
-           
-            break;
-        }
+      System.out.println("Is your number:"+middle);
+      System.out.println();
+      System.out.println("Enter your answer in 'yes' or 'high' or 'low'");
+      input=AlgorithmUtility.StringValue();
+      
+      do
+      {
+          if (input.equals("high"))
+          {
+              lower= middle;
+              count++;
+          }
+          else if (input.equals("yes"))
+          {
+              System.out.println("The number you thought was: "+middle);
+              int no=count+1;
+              System.out.println("It takes "+no+" times to find your exact number" );
+              break;
+          }
+          else if(input.equals("low"))
+          {
+              upper=middle;
+              count++;
+          }
+          if(count<n)
+          {
+              middle=(lower+ upper+1)/2;
+              System.out.println("Is your number "+middle+":");
+              input=AlgorithmUtility.StringValue();
+          }
+      }
+      while(lower<=upper);
+      if (count>n)
+      {
+          System.out.println("Number not found");
+      }
+      else
+      {
+          System.exit(0);
+      }
 
-    }
-    while(low<=up);
-        if (count>n)
-        {
-            System.out.println("Number is not found");
-        }
-        else
-        {
-            System.exit(0);
-        }
-        }
+}
 
 
 //DECIMALTOBINARY
@@ -410,6 +402,29 @@ public static int[] toBinary(int num) {
      {
          array[low +k]=temparr[k];
      }
+ }
+ //binarysearchword
+ public static int binSearch(String [] str,String key)
+ {
+     //int n=str.length;
+     int first  = 0;
+     int last   = str.length - 1;
+     int middle = (first + last)/2;
+
+     while( first <= last )
+     {
+       if ( str[middle].compareTo(key)<0 )
+         first = middle + 1;    
+       else if ( str[middle].equalsIgnoreCase(key) )
+       {
+        return middle;
+       }
+       else
+          last = middle - 1;
+
+       middle = (first + last)/2;
+    }
+  return -1;
  }
 
 }

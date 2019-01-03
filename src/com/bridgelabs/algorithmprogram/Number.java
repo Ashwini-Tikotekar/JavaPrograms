@@ -15,22 +15,24 @@ package com.bridgelabs.algorithmprogram;
 import com.bridgelab.util.AlgorithmUtility;
 
 public class Number {
-	public static void main(String[] args)
-    {
-       
-            AlgorithmUtility u = new AlgorithmUtility();
-            System.out.println("Enter any Number:");
-            int n= AlgorithmUtility.intValue();
-            int range=(int)(Math.pow(2,n-1));             
-            System.out.println("Take number between 1 to "+range);
-        int    count=0, low=0;
-        String value=null;
-        int up=range;
-        int mid=(low+up/2);   
-       
-          u.findNumber(value,low,  up,  mid, count, n);
-        }
-	
+	   public static void main(String[] args) {
+	        
+		    
+		    String i=args[0];
+		    int n=Integer.parseInt(i);
+//		    System.out.println("Enter any Number:");
+//		    int n=AlgorithmUtility.intValue();
+		    int range=(int)(Math.pow(2,n-1));                //range calculation for the number
+		    System.out.println("Take number between '0' to "+range);
+		    int count=0;
+		    String input="null";
+		    int lower=0;
+		    int upper=range;
+		    int middle=(lower+upper/2);
+		    AlgorithmUtility.binarySearch(lower, upper, middle, count, input, count);
+
+
+		}
 	
 
 }

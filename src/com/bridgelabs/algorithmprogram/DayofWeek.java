@@ -8,14 +8,16 @@ public class DayofWeek {
 	public static void main(String[] args)
 	{
 		Scanner s=new Scanner(System.in);
-		System.out.println("enter the date d(date)");
-		System.out.println("enter the month m(month)");
-		System.out.println("enter the year y(year)");
-		System.out.println();
+		System.out.println("enter the date d");
 		int m=AlgorithmUtility.intValue();
-		int n=AlgorithmUtility.dayOfWeek(m, d, y);
-		System.out.println
+		System.out.println("enter the month m");
+		int d=AlgorithmUtility.intValue();
+		System.out.println("enter the year y");
+		int y=AlgorithmUtility.intValue();
+		System.out.println();
 		
+		AlgorithmUtility.dayOfWeek(m, d, y);
+		System.out.println("the day of week is");
 		
 	}
 }

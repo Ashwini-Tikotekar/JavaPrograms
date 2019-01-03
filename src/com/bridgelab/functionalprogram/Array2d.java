@@ -21,9 +21,9 @@ public class Array2d {
          Scanner sc = new Scanner(System.in);
 
         System.out.println("Enter number of rows: ");
-        int m = sc.nextInt();
+        int m=FunctionalUtility.intValue();    
         System.out.println("Enter number of columns: ");
-        int n = sc.nextInt();
+        int n=FunctionalUtility.intValue();    
        
         //calling methods
      FunctionalUtility.array2D();

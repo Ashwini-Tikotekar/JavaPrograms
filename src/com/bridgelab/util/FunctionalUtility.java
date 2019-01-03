@@ -2,6 +2,7 @@ package com.bridgelab.util;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
@@ -13,84 +14,84 @@ import java.util.Scanner;
 public class FunctionalUtility<E> { 
 	static Scanner sc = new Scanner(System.in);
 
-	   
-    public static int intValue()
-       {
-           try
-           {
-              
-           return sc.nextInt();   
-              
-            }
-           catch(Exception e)
-           {
-               e.printStackTrace();
-              
-           }
-           return 0;
-       }   
-           
-           public static String StringValue()
-           {
-               try
-               {
-                  
-               return sc.next(); 
-                  
-                }
-               catch(Exception e)
-               {
-                   e.printStackTrace();
-                  
-               }
-               return null;
-       }
-           public static boolean booleanValue()
-           {
-               try
-               {
-                  
-               return sc.hasNext();  
-                  
-                }
-               catch(Exception e)
-               {
-                   e.printStackTrace();
-                  
-               }
-               return false; 
-           }
-           
-	          public static double doubValue()
-	             {
-	                 try
-	                 {
-	                    
-	                 return sc.nextDouble();	                    
-	                  }
-	                 catch(Exception e)
-	                 {
-	                     e.printStackTrace();
-	                    
-	                 }
-	                 return 0.0; 
-	             }
-	          
-	          public static long longValue()
-	             {
-	                 try
-	                 {
-	                    
-	                 return sc.nextLong();  
-	                    
-	                  }
-	                 catch(Exception e)
-	                 {
-	                     e.printStackTrace();
-	                    
-	                 }
-	                 return 0; 
-	             }
+
+	public static int intValue()
+	{
+		try
+		{
+
+			return sc.nextInt();   
+
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+
+		}
+		return 0;
+	}   
+
+	public static String StringValue()
+	{
+		try
+		{
+
+			return sc.next(); 
+
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+
+		}
+		return null;
+	}
+	public static boolean booleanValue()
+	{
+		try
+		{
+
+			return sc.hasNext();  
+
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+
+		}
+		return false; 
+	}
+
+	public static double doubValue()
+	{
+		try
+		{
+
+			return sc.nextDouble();	                    
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+
+		}
+		return 0.0; 
+	}
+
+	public static long longValue()
+	{
+		try
+		{
+
+			return sc.nextLong();  
+
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+
+		}
+		return 0; 
+	}
 
 
 
@@ -121,7 +122,7 @@ public class FunctionalUtility<E> {
 		}
 	}
 
-	
+
 	//power
 	public void power() {
 
@@ -143,9 +144,9 @@ public class FunctionalUtility<E> {
 
 		}
 	}
-	
-	
-//harmonic
+
+
+	//harmonic
 	public void harmonic() {
 		Scanner s = new Scanner(System.in);
 		System.out.println("enter the number");
@@ -159,9 +160,9 @@ public class FunctionalUtility<E> {
 
 		System.out.println(sum);
 	}
-	
+
 	//prime
- public void Prime() {
+	public void Prime() {
 
 		int i, m = 0, flag = 0;
 		Scanner s = new Scanner(System.in);
@@ -191,8 +192,8 @@ public class FunctionalUtility<E> {
 		}
 	}
 
- 
- //flipcoin
+
+	//flipcoin
 	public void flipCoin(int count) {
 		int head = 0;
 		int tail = 0;
@@ -213,42 +214,42 @@ public class FunctionalUtility<E> {
 
 		System.out.println("Number of tails=" + tail * 100 / i);
 	}
-	
-	
-//gambler
+
+
+	//gambler
 	public void Gambler(int Stake,int Goal,int n) {
-		
-		        int bets=0,wins=0,loss=0;
-		        for(int i=0;i<n;i++)
-		        {
-		            int money=Stake;
-		            while(money>0 && money<Goal)
-		            {
-		                bets++;
-		                if(Math.random()<0.5)
-		                {
-		                    money--;   //wins $1
 
-		                }
-		                else
-		                    money++;   //loss $1
+		int bets=0,wins=0,loss=0;
+		for(int i=0;i<n;i++)
+		{
+			int money=Stake;
+			while(money>0 && money<Goal)
+			{
+				bets++;
+				if(Math.random()<0.5)
+				{
+					money--;   //wins $1
 
-		            }
-		            if(money==Goal)
+				}
+				else
+					money++;   //loss $1
 
-		                wins++;
-		            else
-		                loss++;
+			}
+			if(money==Goal)
 
-		        }
-		        System.out.println(wins+ ":"+loss+ ":"+n);    
-		        System.out.println("percentage of wins:" +wins*100/n);
-		        System.out.println("percentage of loss:" +loss*100/n);
-		        System.out.println("bet is" +bets);   
+				wins++;
+			else
+				loss++;
+
+		}
+		System.out.println(wins+ ":"+loss+ ":"+n);    
+		System.out.println("percentage of wins:" +wins*100/n);
+		System.out.println("percentage of loss:" +loss*100/n);
+		System.out.println("bet is" +bets);   
 	}	
-	
 
-	
+
+
 	//Triplets
 	public static List<String> sumOfThree(int[] arr) {
 
@@ -268,257 +269,438 @@ public class FunctionalUtility<E> {
 		}
 		return tripletList;
 
-}
-	
+	}
+
 	//array2d
 	public  static void array2D() {
 		FunctionalUtility f1=new FunctionalUtility();
-        System.out.println("enter the number of rows:");
-        int m=FunctionalUtility.intValue();    
-        System.out.println("enter the number of column:");
-        int n=FunctionalUtility.intValue();    
-        System.out.println("1:Integer  2:Double  3:Boolean" );
-        int flag=FunctionalUtility.intValue();
-        switch(flag)
-        {
-        case 1:Integer[][] array=new Integer[m][n];
-        for(int i=0;i<m;i++)
-        {
-            for(int j=0;j<n;j++)
-            {
-                array[i][j]=FunctionalUtility.intValue();
-            }
-        }
-        f1.displayArray(array,m,n);
-        break;
+		System.out.println("enter the number of rows:");
+		int m=FunctionalUtility.intValue();    
+		System.out.println("enter the number of column:");
+		int n=FunctionalUtility.intValue();    
+		System.out.println("1:Integer  2:Double  3:Boolean" );
+		int flag=FunctionalUtility.intValue();
+		switch(flag)
+		{
+		case 1:Integer[][] array=new Integer[m][n];
+		for(int i=0;i<m;i++)
+		{
+			for(int j=0;j<n;j++)
+			{
+				array[i][j]=FunctionalUtility.intValue();
+			}
+		}
+		f1.displayArray(array,m,n);
+		break;
 
 
-        case 2:Double[][] darray=new Double[m][n];
-        for(int i=0;i<m;i++)
-        {
-            for(int j=0;j<n;j++)
-            {
+		case 2:Double[][] darray=new Double[m][n];
+		for(int i=0;i<m;i++)
+		{
+			for(int j=0;j<n;j++)
+			{
 
-                darray[i][j]=FunctionalUtility.doubValue();            }
-        }
-        f1.displayArray(darray,m,n);
-        break;
+				darray[i][j]=FunctionalUtility.doubValue();            }
+		}
+		f1.displayArray(darray,m,n);
+		break;
 
-        case 3:Boolean[][] barray=new Boolean[m][n];
-        for(int i=0;i<m;i++)
-        {
-            for(int j=0;j<n;j++)
-            {
-                barray[i][j]=FunctionalUtility.booleanValue();
-            }
-        }
-        f1.displayArray(barray,m,n);
-        break;
-        
-        default: System.out.println("Select among the choice");
-        }
-        
-        //FunctionalUtility.close();
-    }
-	public   void displayArray(E[][]garray,int m,int n)
-    {
-        for(int i=0;i< m;i++)
-        {
-            for(int j=0;j<n;j++)
-            {
-                System.out.print(garray[i][j] +" ");
-            }
-            System.out.println();
-        }
-		
+		case 3:Boolean[][] barray=new Boolean[m][n];
+		for(int i=0;i<m;i++)
+		{
+			for(int j=0;j<n;j++)
+			{
+				barray[i][j]=FunctionalUtility.booleanValue();
+			}
+		}
+		f1.displayArray(barray,m,n);
+		break;
+
+		default: System.out.println("Select among the choice");
+		}
+
+		//FunctionalUtility.close();
 	}
-	
-//distance//
-public void distance() {
-	
-	
-	 int x1,x2,y1,y2;
+	public   void displayArray(E[][]garray,int m,int n)
+	{
+		for(int i=0;i< m;i++)
+		{
+			for(int j=0;j<n;j++)
+			{
+				System.out.print(garray[i][j] +" ");
+			}
+			System.out.println();
+		}
 
-double dis;
+	}
 
-Scanner sc=new Scanner(System.in);
-
-System.out.println("enter x1 point");
-
-    x1=sc.nextInt();
-
-    System.out.println("enter y1 point");
-
-    y1=sc.nextInt();
-
-System.out.println("enter x2point");
-
-    x2=sc.nextInt();
-
-System.out.println("enter y2 point");
-
-    y2=sc.nextInt();
- 
-dis=Math.sqrt((x2-x1)*(x2-x1) + (y2-y1)*(y2-y1));
- 	 	    
-  System.out.println("distancebetween"+"("+x1+","+y1+"),"+"("+x2+","+y2+")===>"+dis);
-} 
+	//distance//
+	public void distance() {
 
 
+		int x1,x2,y1,y2;
 
-//quadratic equation
-public static void quadraticEquation() {
-	
-	
-	
-    int a, b, c;
+		double dis;
 
-    double root1, root2, d;
+		Scanner sc=new Scanner(System.in);
 
-    Scanner s = new Scanner(System.in);
+		System.out.println("enter x1 point");
 
-    System.out.println("Given quadratic equation:ax^2 + bx + c");
+		x1=sc.nextInt();
 
-    System.out.print("Enter a:");
+		System.out.println("enter y1 point");
 
-    a = s.nextInt();
+		y1=sc.nextInt();
 
-    System.out.print("Enter b:");
+		System.out.println("enter x2point");
 
-    b = s.nextInt();
+		x2=sc.nextInt();
 
-    System.out.print("Enter c:");
+		System.out.println("enter y2 point");
 
-    c = s.nextInt();
+		y2=sc.nextInt();
 
-    System.out.println("Given quadratic equation:"+a+"x^2 + "+b+"x + "+c);
+		dis=Math.sqrt((x2-x1)*(x2-x1) + (y2-y1)*(y2-y1));
 
-    d = b * b - 4 * a * c;
+		System.out.println("distancebetween"+"("+x1+","+y1+"),"+"("+x2+","+y2+")===>"+dis);
+	} 
 
-    if(d > 0)
 
-    {
 
-        System.out.println("Roots are real and unequal");
+	//quadratic equation
+	public static void quadraticEquation() {
 
-        root1 = ( - b + Math.sqrt(d))/(2*a);
 
-        root2 = (-b - Math.sqrt(d))/(2*a);
 
-        System.out.println("First root is:"+root1);
+		int a, b, c;
 
-        System.out.println("Second root is:"+root2);
+		double root1, root2, d;
 
-    }
+		Scanner s = new Scanner(System.in);
 
-    else if(d == 0)
+		System.out.println("Given quadratic equation:ax^2 + bx + c");
 
-    {
+		System.out.print("Enter a:");
 
-        System.out.println("Roots are real and equal");
+		a = s.nextInt();
 
-        root1 = (-b+Math.sqrt(d))/(2*a);
+		System.out.print("Enter b:");
 
-        System.out.println("Root:"+root1);
+		b = s.nextInt();
 
-    }
+		System.out.print("Enter c:");
 
-    else
+		c = s.nextInt();
 
-    {
+		System.out.println("Given quadratic equation:"+a+"x^2 + "+b+"x + "+c);
 
-        System.out.println("Roots are imaginary");
+		d = b * b - 4 * a * c;
 
-    }
+		if(d > 0)
 
-}
+		{
 
-//windchill
-public static void windChill() {
-	Scanner input = new Scanner(System.in);
+			System.out.println("Roots are real and unequal");
 
-	// Prompt the user to enter a temperature between -58F and 
-	// 41F and a wind speed greater than or equal to 2.
-	System.out.print("Enter the temperature in Fahrenheit " +
-		"between -58ºF and 41ºF: ");
-	double temperature = input.nextDouble();
-	System.out.print("Enter the wind speed (>= 2) in miles per hour: ");
-	double speed = input.nextDouble();
+			root1 = ( - b + Math.sqrt(d))/(2*a);
 
-	// Compute the wind chill index
-	double windChill = 35.74 + 0.6215 * temperature -
-							 35.75 * Math.pow(speed, 0.16) +
-							 0.4275 * temperature * Math.pow(speed, 0.16);
+			root2 = (-b - Math.sqrt(d))/(2*a);
 
-	// Display result
-	System.out.println("The wind chill index is " + windChill);
-}
+			System.out.println("First root is:"+root1);
 
-//stopwatch
+			System.out.println("Second root is:"+root2);
+
+		}
+
+		else if(d == 0)
+
+		{
+
+			System.out.println("Roots are real and equal");
+
+			root1 = (-b+Math.sqrt(d))/(2*a);
+
+			System.out.println("Root:"+root1);
+
+		}
+
+		else
+
+		{
+
+			System.out.println("Roots are imaginary");
+
+		}
+
+	}
+
+	//windchill
+	public static void windChill() {
+		Scanner input = new Scanner(System.in);
+
+		// Prompt the user to enter a temperature between -58F and 
+		// 41F and a wind speed greater than or equal to 2.
+		System.out.print("Enter the temperature in Fahrenheit " +
+				"between -58ºF and 41ºF: ");
+		double temperature = input.nextDouble();
+		System.out.print("Enter the wind speed (>= 2) in miles per hour: ");
+		double speed = input.nextDouble();
+
+		// Compute the wind chill index
+		double windChill = 35.74 + 0.6215 * temperature -
+				35.75 * Math.pow(speed, 0.16) +
+				0.4275 * temperature * Math.pow(speed, 0.16);
+
+		// Display result
+		System.out.println("The wind chill index is " + windChill);
+	}
+
+	//stopwatch
 
 	//to start timer
 	public  static long start()
 	{
-		 long startTimer=System.currentTimeMillis();
-		 return startTimer;
+		long startTimer=System.currentTimeMillis();
+		return startTimer;
 	}
-	
+
 	// to stop timer
 	public static long stop()
 	{
 		long stopTimer=System.currentTimeMillis();
-		 return stopTimer;
+		return stopTimer;
 	}
-	
+
 	public static long getElapsedTime(long startTimer, long stopTimer) 
 	{
 		long elapsed=stopTimer-startTimer;
-      return elapsed;
-	
+		return elapsed;
+
 	}	
-	
-	
-	
-//primefactors
+
+
+
+	//primefactors
 	public static void primeFactors(int number) 
 	{
-		
+
 		for (int i = 2; i <= number; i++) {
-			 
-            while (number % i == 0) {
-                System.out.print(i + " ");
-                number = number / i;
-            }
-        }
- 
-//        if (number >2) //brute force
-//        	System.out.println();
+
+			while (number % i == 0) {
+				System.out.print(i + " ");
+				number = number / i;
+			}
+		}
+
+		//        if (number >2) //brute force
+		//        	System.out.println();
 	}
-   
 
-//coupen number
-public int couponNumber(int n)
-{
-    boolean[] collect= new boolean[n]; 
-    int count = 0;                          
-    int dist = 0;                       
-    while (dist< n)
-    {
-        Random r=new Random();
-        int value =r.nextInt(n);
-        count++;                                
-        if (collect[value]==false)
-        {
-            dist++;
-            System.out.println(dist);
-        }
-            else
-            {
-               collect[value] = true;
-            }
-       }
 
-  return  count;
+	//coupen number
+	public int couponNumber(int n)
+	{
+		boolean[] collect= new boolean[n]; 
+		int count = 0;                          
+		int dist = 0;                       
+		while (dist< n)
+		{
+			Random r=new Random();
+			int value =r.nextInt(n);
+			count++;                                
+			if (collect[value]==false)
+			{
+				dist++;
+				System.out.println(dist);
+			}
+			else
+			{
+				collect[value] = true;
+			}
+		}
+
+		return  count;
+	}
+	// permutation
+	public static List<String> recursion(String str, int initial, int last,List<String> arr) {
+
+		if (initial == last) {
+			arr.add(str);
+		} else {
+			for (int i = initial; i < last; i++) {
+				str = swap(str, initial, i);
+				recursion(str, (initial + 1), last,arr);
+				//       str = swap(str, initial, i);
+			}
+		}
+		return arr;
+	}
+
+	/**
+	 * static method is used to swap the string alphabets
+	 * @param str string value
+	 * @param i index of string
+	 * @param j index of string
+	 * @return String
+	 */
+	public static String swap(String str, int i, int j) {
+		char temp;
+		char[] ch = str.toCharArray();
+		temp = ch[i];
+		ch[i] = ch[j];
+		ch[j] = temp;
+		return String.valueOf(ch);
+
+	}
+
+	/**
+	 * static method is used to possible iterations we can do it for a string
+	 * @param s is the string value
+	 * @return arr array of string
+	 */
+	public static List<String> iteration(String str) {
+		List<String> arr = new ArrayList<>();
+		arr.add(String.valueOf(str.charAt(0)));
+		for (int i = 1; i < str.length(); i++) {
+			for (int j = arr.size() - 1; j >= 0; j--) {
+				String s = arr.remove(j);
+				for (int k = 0; k <= s.length(); k++) {
+					arr.add(s.substring(0, k) + str.charAt(i) + s.substring(k));
+				}
+			}
+		}
+		return arr;
+	}
+
+	/**
+	 * static method is used to sort the array list
+	 * @param arr is arraylist
+	 * @return arraylist
+	 */
+	public static List<String> listSort(List<String> arr)
+	{
+		Collections.sort(arr);
+		return arr;
+	}
+
+	/**
+	 * static method is used to compare 2 array list
+	 * @param arr1 array list1
+	 * @param arr2 array list2
+	 * @return integer value
+	 */
+	@SuppressWarnings("unused")
+	public static int comparision(List<String> arr1,List<String> arr2)
+	{
+		for(int i=0;i<arr1.size();i++)
+		{
+			if(arr1.get(i).compareTo(arr2.get(i))==0)
+			{
+				return 1;
+			}
+			else
+				return 0;
+		}
+		return 0;
+	}
+
+
+	//tictaktoe
+	static int player = 0;
+	static int[][] BOARD = new int[3][3];
+	static boolean isEmpty = true;
+
+	public static void initBoard() {
+		System.out.println("TIC TAC TOE GAME\nComputer is o\nPlayer  is x ");
+		for (int i = 0; i < BOARD.length; i++) {
+			for (int j = 0; j < BOARD[i].length; j++) {
+				BOARD[i][j] = -10;
+			}
+		}
+		System.out.println("Board is this :");
+		dispBoard();
+	}
+
+	public static void dispBoard() {
+		int count = 0;
+		for (int i = 0; i < BOARD.length; i++) {
+			System.out.println("---------------");
+			System.out.print("||");
+			for (int j = 0; j < BOARD[i].length; j++) {
+				if (BOARD[i][j] == 0) {
+					count++;
+					System.out.print(" o |");
+				} else if (BOARD[i][j] == 1) {
+					count++;
+					System.out.print(" x |");
+				} else
+					System.out.print("   |");
+			}
+			System.out.println("|");
+		}
+		if (count == 9) {
+			isEmpty = false;
+		}
+		System.out.println("---------------");
+	}
+	/*
+	 * static void putVal(int i, int j, int player) { if if (player % 2 == 0) {
+	 * BOARD[i][j] = 0; } else BOARD[i][j] = 1; }
+	 */
+
+	public static void putVal() 
+	{
+		int i;
+		int j;
+		if (player % 2 == 1)
+		{
+			i = (int) (Math.random() * 10) % 3;
+			j = (int) (Math.random() * 10) % 3;
+		} else
+		{
+			Scanner s = new Scanner(System.in);
+			System.out.println("enter value of x and y by space");
+			i = s.nextInt();
+			j = s.nextInt();
+		}
+		if (BOARD[i][j] == -10)
+		{
+			if (player % 2 == 0)
+			{
+				BOARD[i][j] = 0;
+			} else {
+				BOARD[i][j] = 1;
+				System.out.println("Coumputer Choosing " + i + " " + j);
+			}
+		} 
+		else
+			putVal();
+
+	}
+
+	public static boolean win() {
+		return ((BOARD[0][0] + BOARD[0][1] + BOARD[0][2] == player * 3)
+				|| (BOARD[1][0] + BOARD[1][1] + BOARD[1][2] == player * 3)
+				|| (BOARD[2][0] + BOARD[2][1] + BOARD[2][2] == player * 3)
+				|| (BOARD[0][0] + BOARD[1][0] + BOARD[2][0] == player * 3)
+				|| (BOARD[0][1] + BOARD[1][1] + BOARD[2][1] == player * 3)
+				|| (BOARD[0][2] + BOARD[1][2] + BOARD[2][2] == player * 3)
+				|| (BOARD[0][0] + BOARD[1][1] + BOARD[2][2] == player * 3)
+				|| (BOARD[2][0] + BOARD[1][1] + BOARD[0][2] == player * 3));
+	}
+	public static void play() 
+	{
+		initBoard();
+		while (isEmpty)
+		{
+			System.out.println("Players turn");
+			putVal();
+			dispBoard();
+			if (win())
+			{
+				System.out.println("Player won");
+				return;
+			}
+		}
+	}
 }
-}
-
