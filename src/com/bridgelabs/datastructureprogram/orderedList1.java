@@ -7,7 +7,7 @@ import com.bridgelab.util.LinkedList;
 
 public class orderedList1 {
 	static String sortFile="/home/admin1/Ashwini/od.txt";
-    static String fName="/home/admin1/Ashwini/od.txt";
+    static String fName="/home/admin1/Ashwini/xyz.txt";
     public static void main(String[] args) throws IOException
     {
     	LinkedList LinkedList=new LinkedList();
@@ -29,7 +29,7 @@ public class orderedList1 {
             if(k==0) {
             	LinkedList.insert(LinkedList, key1);
             }
-            int[] fileContent = LinkedList.toIntConv(LinkedList);    
+            int[] fileContent = LinkedList.toIntConv(LinkedList);
             String[] fileContent1 = LinkedList.toStrinConv(LinkedList);
             int[] arr=LinkedList.stringSort(fileContent);
             String[] sarray=new String[arr.length];

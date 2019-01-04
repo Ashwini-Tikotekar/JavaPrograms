@@ -95,13 +95,16 @@ public class FunctionalUtility<E> {
 
 
 
-	public void replaceString(String s) {
-		if (s.length() >= 3) {
-			System.out.println(s.replaceAll("username", "ash"));
-
-		} else
-			System.out.println("please enter more than three characters");
-	}
+	public static void replaceString(String str) {
+		 String uname = FunctionalUtility.StringValue();
+	        if (str.length() >= 3) {
+	            str = str.replaceFirst("<<username>>", uname);
+	            System.out.println(str);
+	        } else
+	            System.out.println("cannot be replaced");
+	    }
+	
+	
 
 	//leapyear//
 	public void leapYear() {
@@ -243,8 +246,8 @@ public class FunctionalUtility<E> {
 
 		}
 		System.out.println(wins+ ":"+loss+ ":"+n);    
-		System.out.println("percentage of wins:" +wins*100/n);
-		System.out.println("percentage of loss:" +loss*100/n);
+		System.out.println("percentage of wins:" +100*wins/n);
+		System.out.println("percentage of loss:" +100*loss/n);
 		System.out.println("bet is" +bets);   
 	}	
 

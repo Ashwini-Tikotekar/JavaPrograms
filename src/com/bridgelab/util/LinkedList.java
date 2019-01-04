@@ -75,7 +75,9 @@ public class LinkedList {
 				}
 			}
 			currNode = currNode.next;
+			
 		}
+		
 
 		return flag;           
 	}
@@ -157,8 +159,10 @@ public class LinkedList {
                 kz=Integer.parseInt(currNode.data);
                 str[i]=kz;
                 i++;
-                currNode = currNode.next;
-            }}
+               
+            }
+            currNode = currNode.next;
+            }
         return str;
     }
     public static int[] stringSort(int[] myArray) {

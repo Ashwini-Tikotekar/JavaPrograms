@@ -1,4 +1,5 @@
 package com.bridgelab.util;
+import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.Stack;
 public class AlgorithmUtility{
@@ -425,6 +426,101 @@ public static int[] toBinary(int num) {
        middle = (first + last)/2;
     }
   return -1;
+ }
+
+ 
+ //prime anagram palindrome
+ public static boolean Pallindrome(int n) {
+     int temp = n;
+     int sum = 0;
+     while (temp != 0) {
+         int r = temp % 10;
+         sum = sum * 10 + r;
+         temp = temp / 10;
+     }
+     if (sum == n) {
+         return true;
+     }
+     return false;
+ }
+ /**
+  * to check the values are anagrams or not
+  *
+  * @param n1 input number1
+  * @param n2 input number2
+  * @return
+  */
+ public static boolean anagram(int n1, int n2) {
+     int[] n1count = count(n1);
+     int[] n2count = count(n2);
+     for (int i = 0; i < n2count.length; i++) {
+         if (n1count[i] != n2count[i]) {
+             return false;
+         }
+     }
+     return true;
+ }
+ public static void primePallindrome() {
+     System.out.println();
+     boolean b;
+     for (int j = 2; j <= 1000; j++) {
+         b = true;
+         for (int i = 2; i < j / 2; i++) {
+             if (j % i == 0) {
+                 b = false;
+                 break;
+             }
+         }
+         if (b && Pallindrome(j))
+             System.out.print(j + " ");
+     }
+ }
+
+ /**
+  * Function to check if no is anagram or not
+  */
+ public static void primeAnagrams() {
+     ArrayList<Integer> ar = new ArrayList<Integer>();
+     System.out.println();
+     boolean b;
+     for (int i = 2; i <= 1000; i++) {
+         b = true;
+         for (int j = 2; j < i / 2; j++) {
+             if (i % j == 0) {
+                 b = false;
+                 break;
+             }
+         }
+         if (b)
+             ar.add(i);
+     }
+     for (int i = 0; i < ar.size(); i++) {
+         for (int j = i + 1; j < ar.size(); j++) {
+             if (anagram(ar.get(i), ar.get(j))) {
+                 System.out.println(ar.get(i)+" "+ar.get(j));
+
+             }
+         }
+     }
+ }
+
+
+
+ /**
+  * Function to count the value in given integer be place
+  *
+  * @param n the integer value to count
+  * @return the integer array for the count value
+  */
+ public static int[] count(int n) {
+     int[] count = new int[10];
+     int temp = n;
+     while (temp != 0) {
+         int r = temp % 10;
+         count[r]++;
+         temp = temp / 10;
+     }
+     return count;
  }
 
 }

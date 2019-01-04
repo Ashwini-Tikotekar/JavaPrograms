@@ -18,10 +18,10 @@ import com.bridgelab.util.FunctionalUtility;
 public class ReplaceString {
 
 	public static void main(String[] args) {
-		FunctionalUtility f = new FunctionalUtility();
-		String s = "hello username how are you";
-		f.replaceString(s);
-
+		  String str ="hello <<username>>,how are you";
+	        System.out.println("Enter the username");
+	        
+	        FunctionalUtility.replaceString(str);
 	}
 
 }

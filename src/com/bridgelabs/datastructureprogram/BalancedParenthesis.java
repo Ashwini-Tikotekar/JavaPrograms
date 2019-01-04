@@ -8,7 +8,7 @@ import com.bridgelab.util.DataStructureUtility;
 
 public class BalancedParenthesis {
 	public static void main(String[] args){
-		Stack u=new Stack();
+		Stack stack=new Stack();
 
 		/* Accepting expression */
 		System.out.println("Enter expression: ");
@@ -21,22 +21,22 @@ public class BalancedParenthesis {
 
 			if (ch == '(')
 			{
-			u.push(i);
+				stack.push(i);
 			}
 				else if (ch == ')')
 				{
 					try
 					{
-					long p =u.pop()+ 1 ;
+					long p =stack.pop()+ 1 ;
 					System.out.println("')' at index "+(i+1)+" matched with '(' at index "+p);
 					}catch(Exception e){
 					System.out.println("')' at index "+(i+1)+" is unmatched");
 					}
 				}            
 			}
-		while (!u.isEmpty() )
+		while (!stack.isEmpty() )
 		{
-		System.out.println("'(' at index "+(u.pop() +1)+" is unmatched");
+		System.out.println("'(' at index "+(stack.pop() +1)+" is unmatched");
 		}                          
     }
  }
