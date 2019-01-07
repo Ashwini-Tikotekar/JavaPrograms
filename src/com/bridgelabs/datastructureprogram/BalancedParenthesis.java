@@ -1,21 +1,21 @@
 package com.bridgelabs.datastructureprogram;
 
-import com.bridgelab.util.Stack;
+import com.bridgelab.util.StackLinkedList;
 
 import com.bridgelab.util.DataStructureUtility;
-
+import com.bridgelab.util.Node;
 
 
 public class BalancedParenthesis {
 	public static void main(String[] args){
-		Stack stack=new Stack();
+		StackLinkedList stack=new StackLinkedList();
 
 		/* Accepting expression */
 		System.out.println("Enter expression: ");
 		String exp =DataStructureUtility.StringValue();        
 		int len = exp.length();
 		System.out.println("Matches and Mismatches: ");
-		for (int i = 0; i < len; i++)
+		for(int i = 0; i < len; i++)
 		{    
 		char ch = exp.charAt(i);
 
@@ -27,16 +27,17 @@ public class BalancedParenthesis {
 				{
 					try
 					{
-					long p =stack.pop()+ 1 ;
-					System.out.println("')' at index "+(i+1)+" matched with '(' at index "+p);
+					Object p =stack.pop();
+					System.out.println("balanced");
 					}catch(Exception e){
-					System.out.println("')' at index "+(i+1)+" is unmatched");
+					System.out.println("unbalanced");
 					}
 				}            
 			}
 		while (!stack.isEmpty() )
 		{
-		System.out.println("'(' at index "+(stack.pop() +1)+" is unmatched");
+		System.out.println("unbalanced");
+		break;
 		}                          
     }
  }

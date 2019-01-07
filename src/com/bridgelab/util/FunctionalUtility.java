@@ -97,13 +97,13 @@ public class FunctionalUtility<E> {
 
 	public static void replaceString(String str) {
 		 String uname = FunctionalUtility.StringValue();
-	        if (str.length() >= 3) {
+		
+	        if (str.length()>=3) {
 	            str = str.replaceFirst("<<username>>", uname);
 	            System.out.println(str);
 	        } else
 	            System.out.println("cannot be replaced");
 	    }
-	
 	
 
 	//leapyear//
@@ -557,6 +557,7 @@ public class FunctionalUtility<E> {
 	}
 
 	/**
+	 * 
 	 * static method is used to possible iterations we can do it for a string
 	 * @param s is the string value
 	 * @return arr array of string
