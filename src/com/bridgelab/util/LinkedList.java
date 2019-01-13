@@ -38,7 +38,7 @@ public class LinkedList {
 		Node new_node = new Node(String);
 		new_node.next = null;
 		if (list.head == null) {
-			list.head = new_node;
+			list.head = new_node;                                                                                                     
 		}
 		else {
 			Node last = list.head;

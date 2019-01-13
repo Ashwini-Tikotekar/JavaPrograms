@@ -146,36 +146,53 @@ public class DataStructureUtility
 		return strarray;
 	}
 
-// prime
-	
-	public static List<Integer> primeNumbers(int m,int n) {
-	    List<Integer> lst=new ArrayList<Integer>();
-	    int temp;
+	// prime
 
-	    //swapping of bounds if the given lower bound is greater than upper bound
-	    if(m>n) {
-	        temp=m;
-	        m=n;
-	        n=temp;}
-	    int flag=1;
-	    //try all the possible values from lower bound to upper bound
-	    //if the number has the factor then it must be checked within lower bound
-	    for(int i=m;i<=n;i++){
-	        for(int j=2;j<i;j++){
-	            //If the number is divisible by any of the number then
-	            //initializing flag to zero and break
-	            //else flag is initialized to one
-	            if(i%j==0){
-	                flag=0;
-	                break;}
-	            else
-	                flag=1;}
-	        //If the number is prime which is indicated by the flag,
-	        //then adds the number into an ArrayList.
-	        if(flag==1)
-	            lst.add(i);}
-	    return lst;
+	public static List<Integer> primeNumbers(int m,int n) {
+		List<Integer> lst=new ArrayList<Integer>();
+		int temp;
+
+		//swapping of bounds if the given lower bound is greater than upper bound
+		if(m>n) {
+			temp=m;
+			m=n;
+			n=temp;}
+		int flag=1;
+		//try all the possible values from lower bound to upper bound
+		//if the number has the factor then it must be checked within lower bound
+		for(int i=m;i<=n;i++){
+			for(int j=2;j<i;j++){
+				//If the number is divisible by any of the number then
+				//initializing flag to zero and break
+				//else flag is initialized to one
+				if(i%j==0){
+					flag=0;
+					break;}
+				else
+					flag=1;}
+			//If the number is prime which is indicated by the flag,
+			//then adds the number into an ArrayList.
+			if(flag==1)
+				lst.add(i);}
+		return lst;
 	}
+
+	//binary search tree
+	public static double binomialCoeff(double n, double k) {
+		double res = 1.0;
+		for (int i = 0; i < k; ++i) {
+			res =res * (n - i);
+			res =res /(i + 1);
+		}
+		return res;
 	}
+
+	public static double countBinary(double n) {
+		double c = binomialCoeff(2 * n, n);
+		double count = c / (n + 1);
+		return count;
+	}
+
+}
 
 

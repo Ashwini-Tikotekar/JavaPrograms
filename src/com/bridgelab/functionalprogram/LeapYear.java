@@ -16,8 +16,8 @@ import com.bridgelab.util.FunctionalUtility;
 
 public class LeapYear {
 	public static void main(String[] agrs) {
-    FunctionalUtility lp=new FunctionalUtility();
-    lp.leapYear();
+		FunctionalUtility ly=new FunctionalUtility();
+		FunctionalUtility.leapYear();
 	}
 
 	

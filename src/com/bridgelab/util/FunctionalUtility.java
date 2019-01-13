@@ -11,7 +11,7 @@ import java.util.Scanner;
 
 
 //replace string//
-public class FunctionalUtility<E> { 
+public  class FunctionalUtility<E> { 
 	static Scanner sc = new Scanner(System.in);
 
 
@@ -107,22 +107,21 @@ public class FunctionalUtility<E> {
 	
 
 	//leapyear//
-	public void leapYear() {
+	public  static boolean leapYear() {
 		int year = 0;
 		Scanner s = new Scanner(System.in);
 		System.out.println("enter any year");
 		year = s.nextInt();
 		s.close();
 
-		if (String.valueOf(year).length() == 4) {
-			if (year % 4 == 0 && year % 400 == 0) {
-				System.out.println("year is leap year");
-			} else if (year % 100 == 0) {
-				System.out.println("year is not leap year");
-			} else {
-				System.out.println("year is not leap year");
-			}
+		if (String.valueOf(year).length() == 4)
+		{
+			if (year % 4 == 0 && year % 400 == 0||year % 100 == 0)
+			{
+				return true;
+			} 
 		}
+		return false;
 	}
 
 
@@ -324,6 +323,7 @@ public class FunctionalUtility<E> {
 
 		//FunctionalUtility.close();
 	}
+	
 	public   void displayArray(E[][]garray,int m,int n)
 	{
 		for(int i=0;i< m;i++)
