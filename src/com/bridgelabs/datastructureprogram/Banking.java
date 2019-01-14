@@ -2,13 +2,13 @@ package com.bridgelabs.datastructureprogram;
 
 
 import com.bridgelab.util.DataStructureUtility;
-import com.bridgelab.util.Queue;
+import com.bridgelab.util.QueueLinkedList;
 
 
 public class Banking {
 	public static void main(String args[])
 	{ 
-		Queue<Integer> queue=new Queue<Integer>();
+		QueueLinkedList<Integer> queue=new QueueLinkedList<Integer>();
 		int n=0,i=0;
 		double cashCount=10000;
 		do {

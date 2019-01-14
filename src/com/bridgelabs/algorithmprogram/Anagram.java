@@ -16,18 +16,22 @@ import java.util.Scanner;
 import com.bridgelab.util.AlgorithmUtility;
 
 public class Anagram {
-public static void main(String[] args){
-	Scanner s=new Scanner(System.in);
-	System.out.println("Enter the string1");
-	String str1=s.next();
-	Scanner n=new Scanner(System.in);
-	System.out.println("Enter the string2");
-	String str2=s.next();
-    AlgorithmUtility.anagram(str1,str2);
-		
+	public static void main(String[] args) {
+		System.out.println("Enter the first string");
+		String str1 = AlgorithmUtility.StringValue();
+		System.out.println("Enter the second string");
+		String str2 = AlgorithmUtility.StringValue();
+		boolean b1 = AlgorithmUtility.anagram(str1, str2);
+		System.out.println();
+		if (b1 == true) {
+			System.out.println("the given two strings " + str1 + " and " + str2 + " are anagram");
+		} else
+			System.out.println("the given two strings " + str1 + " and " + str2 + " are not an anagram");
+	}
 }
-}
-		
-	
+
+
+
+
 
 

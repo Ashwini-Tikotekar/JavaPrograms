@@ -2,7 +2,7 @@ package com.bridgelabs.datastructureprogram;
 
 import com.bridgelab.util.AlgorithmUtility;
 import com.bridgelab.util.FunctionalUtility;
-import com.bridgelab.util.Queue;
+import com.bridgelab.util.QueueLinkedList;
 
 public class WeekDay {
 	
@@ -33,8 +33,8 @@ public class WeekDay {
 	        int d = AlgorithmUtility.dayOfWeek(month, 1, year);
 	        
 	        //Customized Queue
-	        Queue<Queue<Integer>>customQueue = new Queue<Queue<Integer>>();
-	        Queue<Integer> queue = new Queue<Integer>();
+	        QueueLinkedList<QueueLinkedList<Integer>>customQueue = new QueueLinkedList<QueueLinkedList<Integer>>();
+	        QueueLinkedList<Integer> queue = new QueueLinkedList<Integer>();
 	        
 	        for (int i = 0; i < d; i++)
 	            System.out.print("\t");
@@ -45,7 +45,7 @@ public class WeekDay {
 	            queue.enqueue(i);
 	            if (((i + d) % 7 == 0) || (i == days[month])) {
 	                customQueue.enqueue(queue);
-	                queue = new Queue<Integer>();
+	                queue = new QueueLinkedList<Integer>();
 	                continue;
 	            }
 	        }
@@ -56,7 +56,7 @@ public class WeekDay {
 	            
 	            //Method 5- using function of Queue class of
 	            //com.bridgelabz.util package
-	            Queue<Integer> week = customQueue.dequeue();
+	            QueueLinkedList<Integer> week = customQueue.dequeue();
 	            
 	            for (int j = 0; j < week.getSize(); j++) {
 	                System.out.print(week.dequeue() + "\t");

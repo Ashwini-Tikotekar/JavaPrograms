@@ -1,9 +1,12 @@
 package com.bridgelab.util;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Scanner;
-
+import java.util.Set;
+import java.util.Stack;
+import com.bridgelab.util.QueueLinkedList;
 //import com.bridgelabs.datastructureprogram.BalancedParenthesis.Node;
 
 
@@ -130,7 +133,7 @@ public class DataStructureUtility
 	}
 
 	/** Determine if it is a leap year */
-	static boolean isLeapYear(int year) {
+	 public static boolean isLeapYear(int year) {
 		return year % 400 == 0 || (year % 4 == 0 && year % 100 != 0);
 	}
 	public static String[] intTostring(int[] abc) {
@@ -192,7 +195,109 @@ public class DataStructureUtility
 		double count = c / (n + 1);
 		return count;
 	}
+	////find prime
 
+	public static List<Integer> findPrime(int low,int high) {
+		int flag = 1;
+		int i;
+		List<Integer> arr = new ArrayList<>();
+		for (i = low; i < high; i++) {
+			for (int j = 2; j < i; j++) {
+				if (i % j == 0) {
+					flag = 0;
+					break;
+				} else
+					flag = 1;
+			}
+			if (flag == 1) {
+				arr.add(i);
+			}
+		}
+		return arr;
+	}
+	//////
+	public static Set<Integer> primeAnagram(List<Integer> primeList) {
+		Set<Integer> primeAnagram = new HashSet<>();
+		for (int i = 0; i < primeList.size(); i++) {
+			for (int j = i+1; j < primeList.size(); j++) {
+				if (AlgorithmUtility.anagram(String.valueOf(primeList.get(i)), String.valueOf(primeList.get(j)))) {
+					primeAnagram.add(primeList.get(i));
+					primeAnagram.add(primeList.get(j));
+				}
+			}
+		}
+		return primeAnagram;
+	}
+
+public static void printPrimeAndAnagram(List<List<Integer>> list1)
+{
+	List<Integer> demo = new ArrayList<Integer>();
+	for (int i = 0; i < list1.size(); i++) {
+		demo = list1.get(i);
+		if (i == 0) {
+			System.out.println("Numbers which are prime and anagram are:"+demo.size());
+			System.out.println();
+			for (int j = 0; j < demo.size(); j++) {
+				System.out.print(demo.get(j) + " ");
+			}
+		} else {
+			System.out.println("Numbers which are prime but not anagram are:"+demo.size());
+			System.out.println();
+			for (int j = 0; j < demo.size(); j++) {
+				System.out.print(demo.get(j) + " ");
+			}
+		}
+		System.out.println();
+	}
 }
 
+//prime anagram stack
+public static Stack<Integer> primeAnagramstack(List<Integer> primeList) {
+//	Set<Integer> primeAnagram = new HashSet<>();
+	Stack<Integer> stack=new Stack<Integer>();
+	for (int i = 0; i < primeList.size(); i++) {
+		for (int j = i+1; j < primeList.size(); j++) {
+			if (AlgorithmUtility.anagram(String.valueOf(primeList.get(i)), String.valueOf(primeList.get(j)))) {
+				stack.push(primeList.get(i));
+				stack.push(primeList.get(j));
+			}
+		}
+	}
+	return stack;
+}
+  
+//prime anagram queue
 
+
+public static Queue<Integer> primeAnagramqueue(List<Integer> primeList) {
+	Queue<Integer> queue=new Queue<Integer>(1000);
+	for (int i = 0; i < primeList.size(); i++) {
+		for (int j = i+1; j < primeList.size(); j++) {
+			if (AlgorithmUtility.anagram(String.valueOf(primeList.get(i)), String.valueOf(primeList.get(j)))) {
+				queue.enqueue(primeList.get(i));
+				queue.enqueue(primeList.get(j));
+			}
+		}
+	}
+	return queue;
+}
+//caleder
+
+
+
+public static int day(int month, int i, int year)
+{ 
+int y = year - (14 - month) / 12;
+int x = y + y/4 - y/100 + y/400;
+int m = month + 12 * ((14 - month) / 12) - 2;
+int d = (i + x + (31*m)/12) % 7;
+return d;
+}
+
+/**
+ * to find leap year or not
+ * @param year of integer type
+ * @return of boolean type
+ */
+
+}
