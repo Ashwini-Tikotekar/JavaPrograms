@@ -248,7 +248,7 @@ public class OopsUtility {
 		
 	return line;
 	}
-	public void writeToFile(String data,String fileName)throws Exception{
+	public static void writeToFile(String data,String fileName)throws Exception{
 		File file = new File(fileName);
 		if (!file.exists()) {
 			file.createNewFile();
