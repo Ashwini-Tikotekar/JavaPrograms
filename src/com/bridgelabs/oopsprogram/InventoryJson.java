@@ -48,10 +48,12 @@ public class InventoryJson {
 		                    System.out.println("file is empty!! first add inputs on to file or select second choice");
 		                }
 	                String [] arr= {"","rice","wheat","pulses"};
-	                System.out.println("Select the inventory name \n 1.rice 2.wheat 3.pulses");
-	                int option=OopsUtility.intValue();
 	                int op = 1, flag = 0;
 	                while (op == 1) {
+	                System.out.println("Select the inventory name \n 1.rice 2.wheat 3.pulses");
+	                int option=OopsUtility.intValue();
+	                
+	              
 	                    for (InventoryList invenList : list2) {
 	                        if (arr[option].equals(invenList.getInventoryName())) {
 	                            liInventories = invenList.getInventorylist();

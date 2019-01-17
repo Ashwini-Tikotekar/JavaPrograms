@@ -77,39 +77,39 @@ public class AddressBookManager {
 
 	public void insertAddressBook() throws IOException {
 		addressBook = new AddressBook();
-		boolean run = true;
-		while (run == true) {
+		int n = 1;
+		while (n == 1) {
 			System.out.println(
 					"select choice\n1.Add 2.Edit 3.Display 4.Delete 5.Sort By Last Name 6.Sort By Zip code 7.Go to Main Page");
 			int i = OopsUtility.intValue();
 			switch (i) {
 			case 1:
 				addressBook.addPerson();
-				run = true;
+				n = 1;
 				break;
 			case 2:
 				addressBook.editPerson();
-				run = true;
+				n = 1;
 				break;
 			case 3:
 				addressBook.displayAddress();
-				run = true;
+				n = 1;
 				break;
 			case 4:
 				addressBook.deletePerson();
-				run = true;
+				n = 1;
 				break;
 			case 5:
 				addressBook.sortByLastName();
-				run = true;
+				n = 1;
 				break;
 			case 6:
 				addressBook.sortByZipCode();
-				run = true;
+				n = 1;
 				break;
 			case 7:
 				ab.main(null);
-				run = false;
+				n = 0;
 				break;
 			default:
 				System.out.println("no choice");

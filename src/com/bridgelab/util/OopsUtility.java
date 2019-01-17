@@ -13,11 +13,18 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import org.codehaus.jackson.JsonGenerationException;
+import org.codehaus.jackson.JsonParseException;
+import org.codehaus.jackson.map.JsonMappingException;
+import org.codehaus.jackson.map.ObjectMapper;
+import org.codehaus.jackson.map.type.CollectionType;
 
 import com.bridgelabs.oopsprogram.Inventory;
 import com.bridgelabs.oopsprogram.InventoryList;
@@ -200,7 +207,7 @@ public class OopsUtility {
 	BufferedReader br;
 	private final String REGEX_NAME = "<{2}+\\w+>{2}";
 	private final String REGEX_FULLNAME = "<{2}+\\w+ +\\w+>{2}";//"<{2}+//W>{2} ";
-	private final String REGEX_MOBILE_NO = "x{10}";
+	private final String REGEX_MOBILE_NO = "\\w{10}";
 	private final String REGEX_DATE = "\\d{2}+/+\\d{2}+/+\\d{4}";
 	Userdetails ud=new Userdetails();
 	//constructor to initialize bufferedReader
@@ -277,7 +284,23 @@ public class OopsUtility {
 	public static String inputString() {
 		return sc.next();
 	}
-}
+	///////
+	
+	public static <T> List<T> userReadValue(String str, Class<?> cls)
+			throws JsonParseException, JsonMappingException, IOException {
+		ObjectMapper objectMapper=new ObjectMapper();
+		CollectionType colletion = objectMapper.getTypeFactory().constructCollectionType(ArrayList.class, cls);
+		return objectMapper.readValue(str, colletion);
+	}
+
+	public static <T> String userWriteValueAsString(List<T> list)
+			throws JsonGenerationException, JsonMappingException, IOException {
+		ObjectMapper objectMapper=new ObjectMapper();
+		return objectMapper.writeValueAsString(list);
+	}
+	}	
+
+
 
 
 
