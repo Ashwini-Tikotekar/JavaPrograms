@@ -3,7 +3,7 @@ package com.bridgelabs.oopsprogram;
 public  class  Userdetails {
     public String firstName;
     public String lastName;
-    public long mobileNo;
+    public String mobileNo;
     public String date;
    
 	//constructor
@@ -27,11 +27,11 @@ public  class  Userdetails {
 		this.lastName = lastName;
 	}
 
-	public long getMobileNo() {
+	public String getMobileNo() {
 		return mobileNo;
 	}
 
-	public void setMobileNo(long mobileNo) {
+	public void setMobileNo(String mobileNo) {
 		this.mobileNo = mobileNo;
 	}
 

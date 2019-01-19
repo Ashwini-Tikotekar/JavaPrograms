@@ -19,11 +19,19 @@ public class Regex {
 		System.out.println();
 
 		System.out.println("Enter Mobile Number:");
-		user.setMobileNo(OopsUtility.longValue());
+		String num=OopsUtility.StringValue();
+		if(num.length()==10)
+		{
+		user.setMobileNo(num);
 		System.out.println();
-
 		user.setDate(u.getFormatedDate());
 		String str = u.readFile2("/home/admin1/newfile.txt");
 		System.out.println(u.convertString(user, str));
+		}
+		else
+		{
+			System.out.println("Please give 10 numbers exactly");
+		}
+		
 	}
 }

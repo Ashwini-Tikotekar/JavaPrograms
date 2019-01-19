@@ -514,6 +514,21 @@ public static char[] sortChar(char[] ch) {
      }
      return count;
  }
+ 
+ 
+ public static <T extends Comparable<T>> T[] sortArray1(T str[]) {
+		int length = str.length;
+		for (int i = 1; i < length; i++) {
+			T key = str[i];
+			int j = i - 1;
+			while (j >= 0 && ((str[j].compareTo(key) > 0))) {
+				str[j + 1] = str[j];
+				j--;
+			}
+			str[j + 1] = key;
+		}
+		return str;
+}
 
 }
 	

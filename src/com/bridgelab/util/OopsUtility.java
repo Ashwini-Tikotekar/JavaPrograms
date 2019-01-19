@@ -17,6 +17,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
+import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -207,7 +208,7 @@ public class OopsUtility {
 	BufferedReader br;
 	private final String REGEX_NAME = "<{2}+\\w+>{2}";
 	private final String REGEX_FULLNAME = "<{2}+\\w+ +\\w+>{2}";//"<{2}+//W>{2} ";
-	private final String REGEX_MOBILE_NO = "\\w{10}";
+	private final String REGEX_MOBILE_NO = "x{10}";
 	private final String REGEX_DATE = "\\d{2}+/+\\d{2}+/+\\d{4}";
 	Userdetails ud=new Userdetails();
 	//constructor to initialize bufferedReader
@@ -217,7 +218,7 @@ public class OopsUtility {
 
 	//Regex pattern matcher match the string and replace the regex pattern with user details.
 	public String convertString(Userdetails userdetails,String message){
-		
+
 		Pattern p = Pattern.compile(REGEX_NAME);
 		Matcher m = p.matcher(message); 
 		message = m.replaceAll(userdetails.getFirstName());
@@ -228,7 +229,7 @@ public class OopsUtility {
 
 		p = Pattern.compile(REGEX_MOBILE_NO);
 		m = p.matcher(message); 
-		String mobileNo=Long.toString(userdetails.getMobileNo());
+		String mobileNo=userdetails.getMobileNo();
 		message = m.replaceAll(mobileNo);
 
 		p = Pattern.compile(REGEX_DATE);
@@ -237,7 +238,7 @@ public class OopsUtility {
 
 		return message;
 	}
-	
+
 	public static String readFile2(String str) throws FileNotFoundException {
 		FileReader f = new FileReader(str);
 		@SuppressWarnings("resource")
@@ -252,16 +253,17 @@ public class OopsUtility {
 		catch (Exception e) {
 			e.printStackTrace();
 		}
-		
-	return line;
+
+		return line;
 	}
 	public static void writeToFile(String data,String fileName)throws Exception{
+	System.out.println("File name is = "+fileName);
 		File file = new File(fileName);
 		if (!file.exists()) {
 			file.createNewFile();
 		}
 		FileWriter writer = new FileWriter(file);
-		// Writes the content to the file
+	//	Writes the content to the file
 		writer.write(data);
 		writer.flush();
 		writer.close();
@@ -285,7 +287,7 @@ public class OopsUtility {
 		return sc.next();
 	}
 	///////
-	
+
 	public static <T> List<T> userReadValue(String str, Class<?> cls)
 			throws JsonParseException, JsonMappingException, IOException {
 		ObjectMapper objectMapper=new ObjectMapper();
@@ -298,7 +300,48 @@ public class OopsUtility {
 		ObjectMapper objectMapper=new ObjectMapper();
 		return objectMapper.writeValueAsString(list);
 	}
-	}	
+
+
+	public static QueueLinkedList<QueueLinkedList<String>> deckQueueStore(String[] deck )
+	{
+		QueueLinkedList<QueueLinkedList<String>> mainQueue = new QueueLinkedList<QueueLinkedList<String>>();
+		QueueLinkedList<String> queueLinkedList = new QueueLinkedList<String>();
+		System.out.println("Total numver of deck of cards are " + deck.length);
+		for (int i = 0; i < 4; i++) {
+			String[] demo = new String[9];
+			for (int j = 0; j < 9; j++) {
+				demo[j] = deck[i + j * 4];
+			}
+			String[] str2 = AlgorithmUtility.sortArray1(demo);
+			for (int k = 0; k < str2.length; k++) {
+				queueLinkedList.enqueue(str2[k]);
+			}
+			mainQueue.enqueue(queueLinkedList);
+			queueLinkedList = new QueueLinkedList<String>();
+			continue;
+		}
+		return mainQueue;
+	}
+	public static void deal(QueueLinkedList<QueueLinkedList<String>> mainQueue)
+	{
+		for (int i = 0; i < mainQueue.getSize(); i++) {
+			QueueLinkedList<String> queue2 = mainQueue.dequeue();
+			System.out.println("---------------------------------------- Person " + (i + 1)
+					+ " -------------------------------------------");
+			for (int j = 0; j < queue2.getSize(); j++) {
+				System.out.print(queue2.dequeue() + " ,");
+			}
+			System.out.println();
+		}
+	}
+	
+	
+	  public static <T> String userWriteValueAsString(Set<T> list1) throws JsonGenerationException, JsonMappingException, IOException{
+		  ObjectMapper objectMapper=new ObjectMapper();
+		  return objectMapper.writeValueAsString(list1);
+      }
+	 
+}	
 
 
 
