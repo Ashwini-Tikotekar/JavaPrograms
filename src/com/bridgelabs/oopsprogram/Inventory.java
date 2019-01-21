@@ -1,14 +1,19 @@
 package com.bridgelabs.oopsprogram;
 
+/**
+ * inventory class contains the members name,weight and price
+ * @author admin1
+ *
+ */
 public class Inventory {
-	private String Name;
+	private String name;
 	private double weight;
 	private double price;
 	public String getName() {
-		return Name;
+		return name;
 	}
 	public void setName(String name) {
-		Name = name;
+		name = name;
 	}
 	public double getWeight() {
 		return weight;
